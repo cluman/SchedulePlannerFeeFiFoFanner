@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <!-- <script src="java.js"></script> -->
+</head>
+
+<body>
+	<div id = "sign-in" data-role = "page">
+		<div data-role = "header">
+			<h1>	Schedule Planner	</h1>
+		</div>
+		
+		<input id = "username" class = "input" type = "text" value = "username" data-form = "ui-body-a" data-theme = "a">
+		<input id = "password" class = "input" type = "text" value = "password" data-form = "ui-body-a" data-theme = "a">
+		
+		<div role = "main" class="ui-content">
+		
+
+			<fieldset data-role="controlgroup" data-type="horizontal">
+				<form action = "#" method = "get">
+					<input type = "submit" value = "Login"></input>
+				</form>
+
+				<a href="#Registor" class="ui-btn ui-corner-all ui-btn-inline">
+					Registor
+				</a>
+			</fieldset>
+		</div>
+		
+	</div>
+
+	<div id = "Registor" data-role = "page">
+		<div data-role = "header">
+			<h2>Registor</h2>
+		</div>
+
+		<div class="ui-field-contain">
+			<label for="name">User Name:</label>
+			<input type="text" name="name" id="name" value="">
+		</div>
+		<div class="ui-field-contain">
+			<label for="name">Password:</label>
+			<input type="text" name="name" id="name" value="">
+		</div>
+		
+		<div class="ui-field-contain">
+
+		  <div data-role="rangeslider">
+
+			<label for="range-7a">Rangeslider:</label>
+
+			<input name="range-7a" id="range-7a" min="0" max="26" value="0" type="range" />
+
+			<label for="range-7b">Rangeslider:</label>
+
+			<input name="range-7b" id="range-7b" min="0" max="26" value="100" type="range" />
+
+		  </div>
+
+		</div>
+
+
+
+		<fieldset>
+			<div data-role="fieldcontain">
+				<label for="select-based-flipswitch">Computer Science/Engineer:</label>
+				<select id="select-based-flipswitch" data-role="flipswitch">
+					<option value="cs">CS</option>
+					<option value="ce">CE</option>
+				</select>
+			</div>
+		</fieldset>
+<!-- Insert1-->
+		<div data-role = "content">
+			<ul data-role = "listview"  data-filter-placeholder = "Classes" data-inline ="true" data-inset = "true" data-filter = "true" data-filter-reveal="true">
+
+				<li data-role = "list-divider">
+					CSCE
+				</li>			
+				<li>
+					Programming Foundations 1
+				</li>
+				<li>
+					Programming Foundations 2
+				</li>
+				<li>
+					Software Engineering
+				</li>
+				<li>
+					Paradigms
+				</li>
+
+				<li data-role = "list-divider">
+					MATH
+				</li>
+				<li>
+					Calculus 1
+				</li>
+				<li>
+					Calculus 2
+				</li>
+				<li>
+					Discreet Mathmatics
+				</li>
+			</ul>
+		</div>		
+		
+		<div role = "main" class="ui-content">
+			<fieldset data-role="controlgroup" data-type="horizontal">
+				<form action = "#" method = "get">
+					<input type = "submit" value = "Save"></input>
+				</form>
+
+				<a href="#Search" class="ui-btn ui-corner-all ui-btn-inline">
+					Search
+				</a>
+			</fieldset>
+		</div>
+	</div>
+	
+	<div id = "Search" data-role = "page">
+		<div data-role = "header">
+			<h2>Search for New classes</h2>
+		</div>
+		<div>
+			
+		</div>
+		
+		<div data-role = "content">
+			<ul data-role = "listview"  data-filter-placeholder = "Classes" data-inline ="false" data-inset = "true" data-filter = "true" data-filter-reveal="false">
+
+				<li data-role = "list-divider">
+					CSCE
+				</li>	
+				<li>				
+					<input type="checkbox" name="programming 1 CSCE" id="checkbox-1a" class="custom">
+					<label for="checkbox-1a">Programming 1</label>
+				</li>
+				<li>				
+					<input type="checkbox" name="Programming 2 CSCE" id="checkbox-2a" class="custom">
+					<label for="checkbox-2a">Programming 2</label>
+				</li>
+				<li>
+					<input type="checkbox" name="software Engineering CSCE" id="checkbox-3a" class="custom">
+					<label for="checkbox-3a">Software Engineering</label>
+				</li>
+				<li>
+					<input type="checkbox" name="Paradigms CSCE" id="checkbox-4a" class="custom">
+					<label for="checkbox-4a">Paradigms</label>
+				</li>
+				
+				<li data-role = "list-divider">
+					MATH
+				</li>
+				<li>
+					<input type="checkbox" name="Calculus 1 MATH" id="checkbox-1b" class="custom">
+					<label for="checkbox-1b">Calculus 1</label>
+				</li>
+				<li>
+					<input type="checkbox" name="Calculus 2 MATH" id="checkbox-2b" class="custom">
+					<label for="checkbox-2b">Calculus 2</label>
+				</li>
+				<li>
+					<input type="checkbox" name="Discreet Mathmatics MATH" id="checkbox-3b" class="custom">
+					<label for="checkbox-3b">Discrete Mathmatics</label>
+				</li>
+			</ul>
+		</div>	
+		
+		
+	</div>
+
+</body>
+</html>
+
+<!--  Insert1
+
+<div class="ui-block-a ui-content">
+				<ul class="hide-items ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true">
+					<li class="ui-li-divider ui-bar-inherit ui-first-child" role="heading" data-role="list-divider">Mammals</li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item1">Dolphin</a></li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item2">Lemur</a></li>
+					<li class="ui-li-divider ui-bar-inherit" role="heading" data-role="list-divider">Reptiles</li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item3">Cobra</a></li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item4">Gecko</a></li>
+					<li class="ui-li-divider ui-bar-inherit ui-last-child" role="heading" data-role="list-divider">Fish</li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item5">Salmon</a></li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item6">Pollock</a></li>
+				</ul>
+			</div>
+			
+<div class="ui-block-b ui-content">
+				<ul class="hide-items ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true" data-hide-dividers="true">
+					<li class="ui-li-divider ui-bar-inherit" role="heading" data-role="list-divider">Mammals</li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item1">Dolphin</a></li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item2">Lemur</a></li>
+					<li class="ui-li-divider ui-bar-inherit ui-first-child" role="heading" data-role="list-divider">Reptiles</li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item3">Cobra</a></li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item4">Gecko</a></li>
+					<li class="ui-li-divider ui-bar-inherit" role="heading" data-role="list-divider">Fish</li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item5">Salmon</a></li>
+					<li class="ui-last-child"><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item6">Pollock</a></li>
+				</ul>
+			</div>
+<div class="ui-content" role="main">
+		<p>Click on the list items below to hide them. As you hide more and more items, you can observe the difference <code>hideDividers</code> makes.</p>
+		<div class="ui-grid-a">
+			<div class="ui-block-a ui-content">
+				<p><code>hideDividers</code> option set to <code>false</code>.</p>
+			</div>
+			<div class="ui-block-b ui-content">
+				<p><code>hideDividers</code> option set to <code>true</code>.</p>
+			</div>
+			<div class="ui-block-a ui-content">
+				<ul class="hide-items ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true">
+					<li class="ui-li-divider ui-bar-inherit ui-first-child" role="heading" data-role="list-divider">Mammals</li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item1">Dolphin</a></li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item2">Lemur</a></li>
+					<li class="ui-li-divider ui-bar-inherit" role="heading" data-role="list-divider">Reptiles</li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item3">Cobra</a></li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item4">Gecko</a></li>
+					<li class="ui-li-divider ui-bar-inherit ui-last-child" role="heading" data-role="list-divider">Fish</li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item5">Salmon</a></li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item6">Pollock</a></li>
+				</ul>
+			</div>
+			<div class="ui-block-b ui-content">
+				<ul class="hide-items ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true" data-hide-dividers="true">
+					<li class="ui-li-divider ui-bar-inherit" role="heading" data-role="list-divider">Mammals</li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item1">Dolphin</a></li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item2">Lemur</a></li>
+					<li class="ui-li-divider ui-bar-inherit" role="heading" data-role="list-divider">Reptiles</li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item3">Cobra</a></li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item4">Gecko</a></li>
+					<li class="ui-li-divider ui-bar-inherit" role="heading" data-role="list-divider">Fish</li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item5">Salmon</a></li>
+					<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#" data-role="hide-item6">Pollock</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="ui-grid-solo ui-content">
+			<div class="ui-block-a">
+				<a class="ui-btn ui-corner-all ui-shadow" id="restore" href="#">Restore</a>
+			</div>
+		</div>
+	</div>		
+	-->
