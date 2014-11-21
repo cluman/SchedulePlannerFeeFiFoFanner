@@ -1,0 +1,130 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.7.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Nov 21, 2014 at 11:46 PM
+-- Server version: 5.6.20
+-- PHP Version: 5.5.15
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `db1.1`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courses`
+--
+
+CREATE TABLE IF NOT EXISTS `courses` (
+`Index` int(11) NOT NULL,
+  `Number` varchar(5) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Name` varchar(70) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Hours` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=68 ;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`Index`, `Number`, `Name`, `Hours`) VALUES
+(1, '1953', 'Explorations in Computing', 3),
+(2, '2004', 'Programming Foundations I', 4),
+(3, '2014', 'Programming Foundations II', 4),
+(4, '2114', 'Digital Design', 4),
+(5, '2214', 'Computer Organization', 4),
+(6, '3193', 'Programming Paradigms', 3),
+(7, '3193H', 'Honors Programming Paradigms', 3),
+(8, '3213', 'Cluster Computing', 3),
+(9, '3313', 'Algorithms', 3),
+(10, '3513', 'Software Engineering', 3),
+(11, '3613', 'Operating Systems', 3),
+(12, '3613H', 'Honors Operating Systems', 3),
+(13, '3953', 'System Synthesis and Modeling', 3),
+(14, '4013', 'Special Topics', 3),
+(15, '4023H', 'Honors Special Topics', 3),
+(16, '4043', 'RFID Information Systems Security (INFOSEC)', 3),
+(17, '4114', 'Embedded Systems', 4),
+(18, '4123', 'Programming Challenges', 3),
+(19, '4213', 'Computer Architecture', 3),
+(20, '4233', 'Low Power Digital Systems', 3),
+(21, '4253', 'Concurrent Computing', 3),
+(22, '4263', 'Advanced Data Structures', 3),
+(23, '4323', 'Formal Languages and Computability', 3),
+(24, '4333', 'Introduction to Integrated Circuit Design', 3),
+(25, '4353', 'CPLD/FPGA-Based System Design', 3),
+(26, '4423', 'Computer Systems Modeling', 3),
+(27, '4433', 'Cryptography', 3),
+(28, '4523', 'Database Management Systems', 3),
+(29, '4543', 'Software Architecture', 3),
+(30, '4561', 'Capstone I', 1),
+(31, '4613', 'Artificial Intelligence', 3),
+(32, '4623', 'Mobile Programming', 3),
+(33, '4643', 'Graphics Processing Units Programming', 3),
+(34, '4753', 'Computer Networks', 3),
+(35, '4813', 'Computer Graphics', 3),
+(36, '4853', 'Information Security', 3),
+(37, '4914', 'Advanced Digital Design', 4),
+(38, '4963', 'Capstone II', 3),
+(39, '5013', 'Advanced Special Topics in Computer Science or Computer Engineering', 3),
+(40, '5033', 'Advanced Algorithms', 3),
+(41, '5043', 'Advanced Artificial Intelligence', 3),
+(42, '5053', 'Advanced Virtual Worlds', 3),
+(43, '5063', 'Machine Learning', 3),
+(44, '5073', 'Data Mining', 3),
+(45, '5203', 'Advanced Database Systems', 3),
+(46, '5213', 'Bioinformatics', 3),
+(47, '5223', 'Introduction to Integrated Circuit Design', 3),
+(48, '5253L', 'Integrated Circuit Design Laboratory I', 3),
+(49, '5263', 'Computational Complexity', 3),
+(50, '5283', 'Graph and Combinatorial Algorithms', 3),
+(51, '5313', 'Advanced Operating Systems', 3),
+(52, '5323', 'Computer Security', 3),
+(53, '5333', 'Computer Forensics', 3),
+(54, '5363L', 'Integrated Circuit Design Laboratory II', 3),
+(55, '5433', 'Advanced Cryptography', 3),
+(56, '5533', 'Advanced Information Retrieval', 3),
+(57, '5543', 'Statistical Natural Language Processing', 3),
+(58, '5633', 'Network Performance Evaluation', 3),
+(59, '5643', 'Computer Communications Networks', 3),
+(60, '5653', 'Network Security', 3),
+(61, '5663', 'Database Security', 3),
+(62, '5683', 'Image Processing', 3),
+(63, '5703', 'Computer Vision', 3),
+(64, '5823', 'Multiprocessor Systems on Chip', 3),
+(65, '5843', 'Reconfigurable Computing', 3),
+(66, '5943', 'Computer Arithmetic Circuits', 3),
+(67, '5983', 'Application Specific Integrated Circuit Design', 3);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `courses`
+--
+ALTER TABLE `courses`
+ ADD PRIMARY KEY (`Index`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `courses`
+--
+ALTER TABLE `courses`
+MODIFY `Index` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=68;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
