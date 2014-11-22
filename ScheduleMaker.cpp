@@ -12,6 +12,12 @@
 #include <algorithm>
 #include <time.h>
 
+
+
+
+
+
+
 using namespace std;
 int tokenSize;
    
@@ -201,97 +207,67 @@ public:
     }
 };
 
-void printDays(Course c1, Course c2, Course c3, Course c4, Course c5){
-    cout << "Monday classes: \n------------------------" << endl;
+
+void printDays(Course listOfCourses[], int num){
+    cout << "Monday classes: \n------------------------" << endl;    
+    for (int i = 0; i<num; i++) {
+        if(listOfCourses[i].findMonday() == true)
+                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;
+        
+    }
+    cout << "    \n\n";
+   
+    cout << "Tuesday classes: \n------------------------" << endl;   
+    for (int i = 0; i<num; i++) {
+        if(listOfCourses[i].findTuesday() == true)
+                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;
+    }
+    cout << "    \n\n";
     
-    if(c1.findMonday() == true)
-        cout << c1.getTitle() << " - " << c1.getInstructor() << " at " << c1.getTimeStart() << " to " << c1.getTimeEnd() << endl;
-    if(c2.findMonday() == true)
-        cout << c2.getTitle() << " - " << c2.getInstructor() << " at " << c2.getTimeStart() << " to " << c2.getTimeEnd() << endl;
-    if(c3.findMonday() == true)
-        cout << c3.getTitle() << " - " << c3.getInstructor() << " at " << c3.getTimeStart() << " to " << c3.getTimeEnd() << endl;
-    if(c4.findMonday() == true)
-        cout << c4.getTitle() << " - " << c4.getInstructor() << " at " << c4.getTimeStart() << " to " << c4.getTimeEnd() << endl;
-    if(c5.findMonday() == true)
-        cout << c5.getTitle() << " - " << c5.getInstructor() << " at " << c5.getTimeStart() << " to " << c5.getTimeEnd() << endl;
-        cout << "    \n\n";
+    cout << "Wednesday classes: \n------------------------" << endl;  
+    for (int i = 0; i<num; i++) {
+        if(listOfCourses[i].findWednesday() == true)
+                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;
+    }
+    cout << "    \n\n";
     
-    cout << "Tuesday classes: \n------------------------" << endl;
+    cout << "Thursday classes: \n------------------------" << endl; 
+    for (int i = 0; i<num; i++) {
+        if(listOfCourses[i].findThursday() == true)
+                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;
+    }
+    cout << "    \n\n";
     
-    if(c1.findTuesday() == true)
-        cout << c1.getTitle() << " - " << c1.getInstructor() << " at " << c1.getTimeStart() << " to " << c1.getTimeEnd() << endl;
-    if(c2.findTuesday() == true)
-        cout << c2.getTitle() << " - " << c2.getInstructor() << " at " << c2.getTimeStart() << " to " << c2.getTimeEnd() << endl;
-    if(c3.findTuesday() == true)
-        cout << c3.getTitle() << " - " << c3.getInstructor() << " at " << c3.getTimeStart() << " to " << c3.getTimeEnd() << endl;
-    if(c4.findTuesday() == true)
-        cout << c4.getTitle() << " - " << c4.getInstructor() << " at " << c4.getTimeStart() << " to " << c4.getTimeEnd() << endl;
-    if(c5.findTuesday() == true)
-        cout << c5.getTitle() << " - " << c5.getInstructor() << " at " << c5.getTimeStart() << " to " << c5.getTimeEnd() << endl;
-        cout << "    \n\n";
-    
-    cout << "Wednesday classes: \n------------------------" << endl;
-    
-    if(c1.findWednesday() == true)
-        cout << c1.getTitle() << " - " << c1.getInstructor() << " at " << c1.getTimeStart() << " to " << c1.getTimeEnd() << endl;
-    if(c2.findWednesday() == true)
-        cout << c2.getTitle() << " - " << c2.getInstructor() << " at " << c2.getTimeStart() << " to " << c2.getTimeEnd() << endl;
-    if(c3.findWednesday() == true)
-        cout << c3.getTitle() << " - " << c3.getInstructor() << " at " << c3.getTimeStart() << " to " << c3.getTimeEnd() << endl;
-    if(c4.findWednesday() == true)
-        cout << c4.getTitle() << " - " << c4.getInstructor() << " at " << c4.getTimeStart() << " to " << c4.getTimeEnd() << endl;
-    if(c5.findWednesday() == true)
-        cout << c5.getTitle() << " - " << c5.getInstructor() << " at " << c5.getTimeStart() << " to " << c5.getTimeEnd() << endl;
-        cout << "    \n\n";
-    
-    cout << "Thursday classes: \n------------------------" << endl;
-    
-    if(c1.findThursday() == true)
-        cout << c1.getTitle() << " - " << c1.getInstructor() << " at " << c1.getTimeStart() << " to " << c1.getTimeEnd() << endl;
-    if(c2.findThursday() == true)
-        cout << c2.getTitle() << " - " << c2.getInstructor() << " at " << c2.getTimeStart() << " to " << c2.getTimeEnd() << endl;
-    if(c3.findThursday() == true)
-        cout << c3.getTitle() << " - " << c3.getInstructor() << " at " << c3.getTimeStart() << " to " << c3.getTimeEnd() << endl;
-    if(c4.findThursday() == true)
-        cout << c4.getTitle() << " - " << c4.getInstructor() << " at " << c4.getTimeStart() << " to " << c4.getTimeEnd() << endl;
-    if(c5.findThursday() == true)
-        cout << c5.getTitle() << " - " << c5.getInstructor() << " at " << c5.getTimeStart() << " to " << c5.getTimeEnd() << endl;
-        cout << "    \n\n";
-    
-    cout << "Friday classes: \n------------------------" << endl;
-    
-    if(c1.findFriday() == true)
-        cout << c1.getTitle() << " - " << c1.getInstructor() << " at " << c1.getTimeStart() << " to " << c1.getTimeEnd() << endl;
-    if(c2.findFriday() == true)
-        cout << c2.getTitle() << " - " << c2.getInstructor() << " at " << c2.getTimeStart() << " to " << c2.getTimeEnd() << endl;
-    if(c3.findFriday() == true)
-        cout << c3.getTitle() << " - " << c3.getInstructor() << " at " << c3.getTimeStart() << " to " << c3.getTimeEnd() << endl;
-    if(c4.findFriday() == true)
-        cout << c4.getTitle() << " - " << c4.getInstructor() << " at " << c4.getTimeStart() << " to " << c4.getTimeEnd() << endl;
-    if(c5.findFriday() == true)
-        cout << c5.getTitle() << " - " << c5.getInstructor() << " at " << c5.getTimeStart() << " to " << c5.getTimeEnd() << endl;
-        cout << "    \n\n";
+    cout << "Friday classes: \n------------------------" << endl;  
+    for (int i = 0; i<num; i++) {
+        if(listOfCourses[i].findFriday() == true)
+                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;
+    }
+    cout << "    \n\n";
 }
 
 int main()
 {
-    Course::Course c1, c2, c3, c4, c5;
-    
-    string class1 = "Open?MATH2554C-001?Calculus I?4?4675?Mon, Wed, Fri ? 10:45 AM - 11:35 AM?WJWH0218?James Meek";
-    string class2 = "Closed?CHEM1113-001?University Chemistry for Engineers I (Su, Fa)?3?7263??Tue, Thu ? 11:00 AM - 12:15 PM?ARKU0424?Mya Norman";
-    string class3 = "Closed?PHYS2054-001?University Physics I(Sp, Su, Fa)?4?2576?Mon, Wed, Fri ? 9:40 AM - 10:30 AM?ARKU0424?Julio Gea-Banacloche";
-    string class4 = "Open?GNEG1111-005?Introduction to Engineering I (Sp, Fa)?1?5739?Mon, Wed ? 2:00 PM - 2:50 PM?ENGR0209?Leslie Massey";
-    string class5 = "Open?ENGL1013-001?Composition I(Sp, Su, Fa)?3?1181?Mon, Wed, Fri ? 7:30 AM - 8:20 AM?MEMH0253?Pamela Kirkpatrick";
-    
-    c1.setClasses(class1);
-    c2.setClasses(class2);
-    c3.setClasses(class3);
-    c4.setClasses(class4);
-    c5.setClasses(class5);
 
-    printDays(c5, c3, c1, c2, c4);
-
+    Course listOfCourses[50];
+    string classes[50];
+    
+    int numOfCourses=0;
+    
+    classes[0] = "Open?MATH2554C-001?Calculus I?4?4675?Mon, Wed, Fri ? 10:45 AM - 11:35 AM?WJWH0218?James Meek";
+    classes[1] = "Closed?CHEM1113-001?University Chemistry for Engineers I (Su, Fa)?3?7263??Tue, Thu ? 11:00 AM - 12:15 PM?ARKU0424?Mya Norman";
+    classes[2] = "Closed?PHYS2054-001?University Physics I(Sp, Su, Fa)?4?2576?Mon, Wed, Fri ? 9:40 AM - 10:30 AM?ARKU0424?Julio Gea-Banacloche";
+    classes[3] = "Open?GNEG1111-005?Introduction to Engineering I (Sp, Fa)?1?5739?Mon, Wed ? 2:00 PM - 2:50 PM?ENGR0209?Leslie Massey";
+    classes[4] = "Open?ENGL1013-001?Composition I(Sp, Su, Fa)?3?1181?Mon, Wed, Fri ? 7:30 AM - 8:20 AM?MEMH0253?Pamela Kirkpatrick";
+    
+    
+    for (int i = 0; classes[i] != ""; i++)
+    {
+        listOfCourses[i].setClasses(classes[i]);
+        numOfCourses++;
+    }
+    
+    printDays (listOfCourses, numOfCourses);
     
     return 0;
 }
-
