@@ -1,0 +1,12 @@
+Maximum length: 
+
+* E-mail: 254
+* Password: 20
+* Encrypted password: 50
+* Confirmation code: 10
+* Temporary password: 10
+* Encrypted temporary password: 50
+* Salt: 8
+
+
+
