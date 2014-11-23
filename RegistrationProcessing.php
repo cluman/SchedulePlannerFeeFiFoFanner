@@ -3,6 +3,8 @@
 
 <?php
 
+header('Location: EmailConfirmationForm.php');
+
 //print phpinfo();
 
 /* require_once('/library/PHPMailer/class.phpmailer.php');
@@ -120,7 +122,16 @@ $sql = "SELECT code FROM Registration WHERE email='$email'";
 $result = $conn->query($sql);
 
 if ($result->num_rows) {
-	echo ("E-mail already registered!"); //Check 'user' table too!! 
+	echo ("E-mail already registered! <br>"); 
+	echo ("Click here to confirm your email. <br>"); //TODO
+	exit(0);
+}
+
+$sql2 = "SELECT * FROM User WHERE email='$email'";
+$result2 = $conn->query($sql2);
+if ($result2->num_rows) {
+	echo ("E-mail already registered! <br>"); 
+	echo ("Click here to login. <br>"); //TODO
 	exit(0);
 }
 
@@ -159,7 +170,7 @@ else
 	
 	
 function randStr($length) {
-    $chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $chars = '123456789BCDFGHJKLMNPQRSTVWXYZ'; //No vowels so it won't write awkward words; No zero so it won't be mistaken with the letter O
     $random = '';
     for ($i = 0; $i < $length; $i++) {		
         $random .= $chars[rand(0, strlen($chars) - 1)];
