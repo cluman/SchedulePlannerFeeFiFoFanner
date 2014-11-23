@@ -3,69 +3,7 @@
 
 <?php
 
-header('Location: EmailConfirmationForm.php');
-
-//print phpinfo();
-
-/* require_once('/library/PHPMailer/class.phpmailer.php');
-$mail = new \PHPMailer();
-$mail->IsSMTP();
-$mail->SMTPDebug = 0;
-$mail->SMTPAuth = 'login';
-$mail->SMTPSecure = 'ssl';
-$mail->Host = 'smtp.gmail.com';
-$mail->Port = 465;
-$mail->Username = 'example@gmail.com';
-$mail->Password = 'somepassword';
-$mail->SetFrom('example@gmail.com', 'Example');
-$mail->Subject = 'The subject';
-$mail->Body = 'The content';
-$mail->AddAddress('receiver@gmail.com');
-$mail->Send(); */
-
-/* require_once('class.phpmailer.php');
-
-$mail             = new PHPMailer();
-
-$mail->IsSMTP();
-$mail->SMTPAuth   = true;
-$mail->SMTPSecure = "tls";
-$mail->Username   = "yourusername@gmail.com";
-$mail->Password   = "yourpassword";          
-$mail->Host       = "smtp.gmail.com";
-$mail->Port       = 587;           
-
-$mail->SetFrom('yourusername@gmail.com', 'Your Name');
-$mail->Subject    = "My subject";
-$mail->Body    = "My body";
-
-$mail->AddAddress("someone@example.com", "Recipient name");
-
-$mail->Send();  */
-
-/* require("C:\xampp\PHPMailer-master\class.phpmailer.php");
- 
-$mail = new PHPMailer();
- 
-$mail->IsSMTP();
-$mail->Host = "mymail.brinkster.com";
-$mail->SMTPAuth = true;
-$mail->Username = "you@domain.com";
-$mail->Password = "EmailPassword";
- 
-$mail->From = "you@domain.com";
-$mail->FromName = "Your Name";
-$mail->AddReplyTo("you@domain.com");
-$mail->AddAddress("user@domain.com");
-$mail->IsHTML(true);
-$mail->Subject = "Test message sent using the PHPMailer component";
-$mail->Body = "This is a test message.";
-$mail->Send(); */
-
-function printData ($msg, $data)
-{
-	echo "<font color='gray'>$msg: <b>$data</b></font><br><br>";
-}
+//header('Location: EmailConfirmationForm.php');
 
 $password = $_POST["password"];
 $email = $_POST["email"];
@@ -75,22 +13,6 @@ $salt = rand(100000, 999999);
 $confirmation_code = randStr(8);
 
 $encrypted_password = sha1($salt . $password);
-
-
-
-/* printData ("Username", $username);
-printData ("E_mail", $email);
-printData ("Password", $password); */
-
-echo "<br><br>";
-
-//printData ("Salt", $salt);
-//printData ("Salt + Password", $salt . $password);
-//printData ("Encrypted password", $encrypted_password);
-
-echo "<font color='red'>" . "Confirmation code: " . "<b>" . $confirmation_code . "</b>" . "</font>" . "<br><br>";
-
-
 
 
 //---------------------
@@ -114,17 +36,13 @@ if ($conn->connect_error) {
 } 
 
 
-//$conn = new mysqli($server, $user, $password, "guiaph");
-
-//mysql_query ("INSERT INTO first_table (1, 'aaa') ");
-
 $sql = "SELECT code FROM Registration WHERE email='$email'";
 $result = $conn->query($sql);
 
 if ($result->num_rows) {
 	echo ("E-mail already registered! <br>"); 
 	echo ("Click here to confirm your email. <br>"); //TODO
-	exit(0);
+	exit(); 
 }
 
 $sql2 = "SELECT * FROM User WHERE email='$email'";
@@ -132,40 +50,49 @@ $result2 = $conn->query($sql2);
 if ($result2->num_rows) {
 	echo ("E-mail already registered! <br>"); 
 	echo ("Click here to login. <br>"); //TODO
-	exit(0);
+	exit();
 }
 
 $sql = "INSERT INTO registration (email, password, salt, code) VALUES('$email', '$encrypted_password', '$salt', '$confirmation_code')";
 
 if (mysql_query($sql) == TRUE) {
-	echo "New record created successfully.";
+	echo "New record created successfully.<br>";
 } else { 
-	echo "Something went wrong.... ";
+	echo "Something went wrong inserting into the database.... Scream for help! <br>";
 }
 
-$SQL = "SELECT * FROM registration";
-$RS  = mysql_query($SQL);
-while($RF = mysql_fetch_array($RS))
-{
-    echo '<pre>';
-    print_r($RF);
-    echo '</pre>';
-}
 
 //---------------------
 
 
-$email = "raphaelrs55@hotmail.com";
-$usersubject = "Thank You";
-$userheaders = "Fkkkk\n";
-$usermessage = "Thank you for subscribing to our mailing list.";
+$to = $email;
+$subject = "Your confirmation code";
+$fromName = "FeeFiFoFanner";
+$content = 
+"
+Welcome to FeeFiFoFanner!<br><br>
+Your confirmation code is <b>$confirmation_code</b><br><br>
+Thank you for subscribing! <br>
+"
 
-error_reporting(E_ALL);
 
-if (mail($email,$usersubject,$usermessage,$userheaders))
-	echo "E-mail sent." . "</br>";
+require "email_config/SendEmailConfig.php";
+
+if (SendEmail ("raphaelrs55@gmail.com", $subject, $content, $fromName))
+{
+	echo "<script>alert('Confirmation code sent via e-mail.');</script>";
+}
 else
-	echo "E-mail NOT sent." . "</br>";
+{
+	echo "Couldn't send confirmation code via e-mail. Please, try to <a href='ResetCode.php'>send your code again</a> later.<br>";
+	exit();
+}
+
+
+//($to, $subject, $content, $fromName)
+
+
+
 	
 	
 	
