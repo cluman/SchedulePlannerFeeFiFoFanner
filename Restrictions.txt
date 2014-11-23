@@ -9,4 +9,11 @@ Maximum length:
 * Salt: 8
 
 
+Minimum lenght: 
+* Password: 4
+
+
+Other: 
+* E-mail has to contain '@'
+
 
