@@ -1,13 +1,10 @@
 <html>
 <body>
 
-
 <?php 
-
 
 $password = $_POST["password"];
 $email = $_POST["email"];
-
 
 $server = 'localhost';
 $base      = 'Scheduler';
@@ -87,8 +84,6 @@ else
 		</html>
 		";
 }
-
-
 
 
 ?>

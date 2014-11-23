@@ -1,12 +1,7 @@
 <html>
-
-
-
-
 <body>
 
-
-<form action="RegistrationProcessing.php" onSubmit="return validateForm();" method="post" name="myForm">
+<form action="RegistrationProcessing.php" onSubmit="return validateForm();" method="post" name="Form">
 E-mail: <input id="email" type="text" name="email" value = r+"aaa@"><br>
 Password: <input type="password" name="password" value = "123"><br>
 Retype password: <input type="password" name="password_confirmation" value = "123"><br>
@@ -22,15 +17,15 @@ document.getElementById('email').value=r+"aaa@";
 
 function validateForm() {	
 	
-	var email = document.forms["myForm"]["email"].value;
+	var email = document.forms["Form"]["email"].value;
 	
 	if (email.indexOf("@") <= -1) {
 		alert("Please insert a valid email");
         return false;
 	}
 	
-	var pass1 = document.forms["myForm"]["password"].value;
-	var pass2 = document.forms["myForm"]["password_confirmation"].value;
+	var pass1 = document.forms["Form"]["password"].value;
+	var pass2 = document.forms["Form"]["password_confirmation"].value;
 	
 	if (pass1 == "") {
 		alert ("Please choose a password");
