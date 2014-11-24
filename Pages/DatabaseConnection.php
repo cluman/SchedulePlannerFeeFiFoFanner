@@ -1,24 +1,24 @@
 
 <?php
 
-$server = 'localhost';
-$database      = 'Scheduler';
-$username  = 'root';
-$password    = '';
+$DBserver = 'localhost';
+$DBdatabase      = 'Scheduler';
+$DBusername  = 'root';
+$DBpassword    = '';
 
 
-$link     = mysql_connect($server, $username, $password);
-$db          = mysql_select_db($database,$link);
+$DBlink     = mysql_connect($DBserver, $DBusername, $DBpassword);
+$db          = mysql_select_db($DBdatabase,$DBlink);
 
 
-if(!$link)
+if(!$DBlink)
 {
 	echo "Error connecting database!";
 	exit();
 }
 
 // Create connection
-$conn = new mysqli($server, $username, $password, $database);
+$conn = new mysqli($DBserver, $DBusername, $DBpassword, $DBdatabase);
 
 // Check connection
 if ($conn->connect_error) 
