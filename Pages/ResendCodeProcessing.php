@@ -1,33 +1,50 @@
  <?php
  
  
-header('Location: EmailConfirmationForm.php');
+header('Location: EmailConfirmation.php');
  
 require 'DatabaseConnection.php';
- 
  
 $email = $_POST["email"];
   
 $confirmation_code = randStr(8);
 
+// Verifies if e-mail is in fact registered
 $resource = mysql_query("SELECT * FROM Registration WHERE email='$email'");
 if($resource === false)
 {	die("Database Error <br>"); }
 $grab = mysql_fetch_assoc($resource);
 if (mysql_num_rows($resource) <= 0) 
-{   echo "E-mail not registered, or already confirmed. Try <a href='Login.php'>login</a>."; die(); }
+{   echo "E-mail not registered, or already confirmed. Try <a href='Login.php'>login</a>."; exit(); }
 
-
-if ($conn->query("UPDATE Registration SET code='$confirmation_code' WHERE email='$email'") === TRUE) {
-    //echo "Record updated successfully";
+//Update database with new code
+if ($conn->query("UPDATE Registration SET code='$confirmation_code' WHERE email='$email'")) 
+{	echo "New code successfully stored on the database";
 } else {
-    echo "Error updating record: " . $conn->error;
-	die();
+	echo "Error updating record: " . $conn->error;
+	exit(); 
 }
 
+// Sets email
+$to = $email;
+$subject = "Confirmation code resent";
+$fromName = "FeeFiFoFanner";
+$content = 
+"
+Your new confirmation code is <b>$confirmation_code</b><br><br>
+";
 
+require "email_config/SendEmailConfig.php";
 
-echo "<script>alert('New code sent to your e-mail.');</script>";
+if (SendEmail ($to, $subject, $content, $fromName))
+{
+	echo "<script>alert('New confirmation code sent via e-mail.');</script>";	
+}
+else
+{
+	echo "Couldn't send confirmation code via e-mail. Please, try to <a href='ResendCode.php'>send your code again</a> later.<br>";
+	exit();
+}
 
 	
 function randStr($length) {
