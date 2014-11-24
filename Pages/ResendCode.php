@@ -1,7 +1,7 @@
 <html>
 <body>
 
-<form action="ResetCodeProcessing.php" onSubmit="return validateConf();" method="post" name="Form">
+<form action="ResendCodeProcessing.php" onSubmit="return validateConf();" method="post" name="Form">
 
 E-mail: <input type="text" name="email" value = ""><br>
 
@@ -10,6 +10,18 @@ E-mail: <input type="text" name="email" value = ""><br>
 
 </body>
 </html>
+
+<?php
+session_start();
+$email = $_SESSION['email'];
+
+echo "
+<script>
+document.forms['Form']['email'].value = '$email';
+</script>
+";
+
+?>
 
 
 <script>
