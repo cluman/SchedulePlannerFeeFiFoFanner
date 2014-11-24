@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=0.5">
@@ -8,120 +7,56 @@
   <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <!-- <script src="java.js"></script> -->
-</head>
+  
+</head> 
 
 <body>
+
+
+		
+
 	<div id = "sign-in" data-role = "page">
 		<div data-role = "header">
 			<h1>	Schedule Planner	</h1>
 		</div>
-		
-		<input id = "username" class = "input" type = "text" value = "username" data-form = "ui-body-a" data-theme = "a">
+		          
+
+		<input id = "Email" class = "input" type = "text" value = "Email" data-form = "ui-body-a" data-theme = "a">
 		<input id = "password" class = "input" type = "text" value = "password" data-form = "ui-body-a" data-theme = "a">
 		
 		<div role = "main" class="ui-content">
 		
-
 			<fieldset data-role="controlgroup" data-type="horizontal">
 				<form action = "#" method = "get">
 					<input type = "submit" value = "Login"></input>
 				</form>
-
-				<a href="#Registor" class="ui-btn ui-corner-all ui-btn-inline">
-					Registor
+				<a href="#Register" class="ui-btn ui-corner-all ui-btn-inline">
+					Register
 				</a>
 			</fieldset>
 		</div>
 		
 	</div>
-
-	<div id = "Registor" data-role = "page">
+	<div id = "Register" data-role = "page">
 		<div data-role = "header">
-			<h2>Registor</h2>
+			<h2>Register</h2>
 		</div>
-
 		<div class="ui-field-contain">
-			<label for="name">User Name:</label>
+			<label for="name">Email:</label>
 			<input type="text" name="name" id="name" value="">
-		</div>
-		<div class="ui-field-contain">
+
 			<label for="name">Password:</label>
 			<input type="text" name="name" id="name" value="">
+			
+			<label for="name">Retype Password:</label>
+			<input type="text" name="name" id="name" value="">
 		</div>
 		
-		<div class="ui-field-contain">
 
-		  <div data-role="rangeslider">
+		<form action = "#" method = "get">
+			<input type = "submit" value = "Save"></input>
+		</form>
 
-			<label for="range-7a">Rangeslider:</label>
-
-			<input name="range-7a" id="range-7a" min="0" max="26" value="0" type="range" />
-
-			<label for="range-7b">Rangeslider:</label>
-
-			<input name="range-7b" id="range-7b" min="0" max="26" value="100" type="range" />
-
-		  </div>
-
-		</div>
-
-
-
-		<fieldset>
-			<div data-role="fieldcontain">
-				<label for="select-based-flipswitch">Computer Science/Engineer:</label>
-				<select id="select-based-flipswitch" data-role="flipswitch">
-					<option value="cs">CS</option>
-					<option value="ce">CE</option>
-				</select>
-			</div>
-		</fieldset>
-<!-- Insert1-->
-		<div data-role = "content">
-			<ul data-role = "listview"  data-filter-placeholder = "Classes" data-inline ="true" data-inset = "true" data-filter = "true" data-filter-reveal="true">
-
-				<li data-role = "list-divider">
-					CSCE
-				</li>			
-				<li>
-					Programming Foundations 1
-				</li>
-				<li>
-					Programming Foundations 2
-				</li>
-				<li>
-					Software Engineering
-				</li>
-				<li>
-					Paradigms
-				</li>
-
-				<li data-role = "list-divider">
-					MATH
-				</li>
-				<li>
-					Calculus 1
-				</li>
-				<li>
-					Calculus 2
-				</li>
-				<li>
-					Discreet Mathmatics
-				</li>
-			</ul>
-		</div>		
-		
-		<div role = "main" class="ui-content">
-			<fieldset data-role="controlgroup" data-type="horizontal">
-				<form action = "#" method = "get">
-					<input type = "submit" value = "Save"></input>
-				</form>
-
-				<a href="#Search" class="ui-btn ui-corner-all ui-btn-inline">
-					Search
-				</a>
-			</fieldset>
-		</div>
 	</div>
 	
 	<div id = "Search" data-role = "page">
@@ -131,56 +66,611 @@
 		<div>
 			
 		</div>
-		
-		<div data-role = "content">
-			<ul data-role = "listview"  data-filter-placeholder = "Classes" data-inline ="false" data-inset = "true" data-filter = "true" data-filter-reveal="false">
+		<div>
+<fieldset  data-role="controlgroup" data-type="horizontal">
+<div class="ui-field-contain">
+  <label for="name">Search Classes by time:</label>
 
-				<li data-role = "list-divider">
-					CSCE
-				</li>	
-				<li>				
-					<input type="checkbox" name="programming 1 CSCE" id="checkbox-1a" class="custom">
-					<label for="checkbox-1a">Programming 1</label>
-				</li>
-				<li>				
-					<input type="checkbox" name="Programming 2 CSCE" id="checkbox-2a" class="custom">
-					<label for="checkbox-2a">Programming 2</label>
-				</li>
-				<li>
-					<input type="checkbox" name="software Engineering CSCE" id="checkbox-3a" class="custom">
-					<label for="checkbox-3a">Software Engineering</label>
-				</li>
-				<li>
-					<input type="checkbox" name="Paradigms CSCE" id="checkbox-4a" class="custom">
-					<label for="checkbox-4a">Paradigms</label>
-				</li>
+  <input type="text" name="name" id="name" value="Search Classes by time: 8:00 am">
+
+
+</div>
+
+		
+			
+			<div data-role = "content">
+				<ul data-role = "listview"  data-filter-placeholder = "Classes" data-inline ="false" data-inset = "true" data-filter = "true" data-filter-reveal="true">
+					<li data-role = "list-divider">
+						CSCE
+					</li>	
+					<li>				
+						<input type="checkbox" name="programming 1" id="checkbox-1a" class="custom">
+						<label for="checkbox-1a">CSCE 2004 Programming 1</label>
+					</li>
+					<li>				
+						<input type="checkbox" name="Programming 2" id="checkbox-2a" class="custom">
+						<label for="checkbox-2a">CSCE 2014 Programming 2</label>
+					</li>
+					<li>
+						<input type="checkbox" name="software Engineering" id="checkbox-3a" class="custom">
+						<label for="checkbox-3a">CSCE 3050 Software Engineering</label>
+					</li>
+					<li>
+						<input type="checkbox" name="Paradigms" id="checkbox-4a" class="custom">
+						<label for="checkbox-4a">CSCE 3196 Paradigms</label>
+					</li>
+					
+					<li data-role = "list-divider">
+						MATH
+					</li>
+					<li>
+						<input type="checkbox" name="Calculus 1 MATH" id="checkbox-1b" class="custom">
+						<label for="checkbox-1b">MATH 2154 Calculus 1</label>
+					</li>
+					<li>
+						<input type="checkbox" name="Calculus 2 MATH" id="checkbox-2b" class="custom">
+						<label for="checkbox-2b">MATH 2256 Calculus 2</label>
+					</li>
+					<li>
+						<input type="checkbox" name="Discreet Mathmatics MATH" id="checkbox-3b" class="custom">
+						<label for="checkbox-3b">TOMB OBBY Discrete Mathmatics</label>
+					</li>
+				</ul>
+			</div>	
+		</fieldset>
+		
+		
+		<!-- Insert2 -->
+		
+
+			<fieldset data-role="controlgroup" data-type="horizontal">
+
+				<a href="#Register" class="ui-btn ui-corner-all ui-btn-inline">
+					
+	<table class="vsGrid" id="gvSchedule" style="border-collapse:collapse;" border="1" cellspacing="0">
+		<tbody>
+
+
+			<tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:2px;" align="center">
+				</td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-top: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;">
+					<strong>
+					</strong>
+					<!-- Image 
+					<input name="gvSchedule$ctl12$ctl03" src="images/vsUnlock.gif" style="border-width:0px;" type="image">
+					-->
+				</td>
+				<td></td>
 				
-				<li data-role = "list-divider">
-					MATH
-				</li>
-				<li>
-					<input type="checkbox" name="Calculus 1 MATH" id="checkbox-1b" class="custom">
-					<label for="checkbox-1b">Calculus 1</label>
-				</li>
-				<li>
-					<input type="checkbox" name="Calculus 2 MATH" id="checkbox-2b" class="custom">
-					<label for="checkbox-2b">Calculus 2</label>
-				</li>
-				<li>
-					<input type="checkbox" name="Discreet Mathmatics MATH" id="checkbox-3b" class="custom">
-					<label for="checkbox-3b">Discrete Mathmatics</label>
-				</li>
-			</ul>
-		</div>	
-		
-		
-	</div>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-top: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;">
+					<strong>
+					</strong>
+				</td>
+				<td></td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-top: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;">
+					<strong>
+					</strong>
+				</td>
+			</tr>
+			<tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:2px;" align="center">
+				</td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">
+				</td>
+				
+				<td></td>
+				
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">
+				</td>
+				
+				<td></td>
+				
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">
+				</td>
+			</tr>
+			<tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:2px;" align="center">
+				</td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">
+				</td>
+				<td></td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">
+				</td>
+				<td></td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">
+				</td>
+			</tr>
+			<tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:2px;" align="center">
+				</td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-bottom: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;">
+				</td>
+				<td></td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-bottom: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;">
+				</td>
+				<td></td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-bottom: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;"></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:2px;" align="center">
+				</td>
+				<td></td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-top: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;">
+				<strong></strong></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">
+				</td><td></td><td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">
+				</td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center"></td>
+				<td></td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">
+				</td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
 
+	</tbody></table>
+				</a>
+			</fieldset>
+		
+		
+<div style="text-align: center; padding-top: 5px;">
+    <div>
+	<table class="vsGrid" id="gvSchedule" style="border-collapse:collapse;" border="1" cellspacing="0">
+		<tbody>
+			<tr class="GridHeader" style="color:#black;font-size:12px;font-weight:bold;" align="center">
+				<th scope="col" style="width:50px;"></th>
+				
+				<th scope="col" style="width:120px;">
+					Monday
+				</th>
+				
+				<th scope="col" style="width:120px;">
+					Tuesday
+				</th>
+				
+				<th scope="col" style="width:120px;">
+					Wednesday
+				</th>
+				
+				<th scope="col" style="width:120px;">
+					Thursday
+				</th>
+				
+				<th scope="col" style="width:120px;">
+					Friday
+				</th>
+				
+			</tr>
+			<tr class="GridBackSlashImage"></tr>
+			
+			<tr></tr>
+			<tr >
+
+			</tr><tr >
+				the head
+			</tr><tr >
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr>
+			<tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">
+					8:30
+				</td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-top: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;">
+					<strong>
+						MATH-2603C-001 LEC
+					</strong>
+					<!-- Image 
+					<input name="gvSchedule$ctl12$ctl03" src="images/vsUnlock.gif" style="border-width:0px;" type="image">
+					-->
+				</td>
+				<td></td>
+				
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-top: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;">
+					<strong>
+						MATH-2603C-001 LEC
+					</strong>
+				</td>
+				<td></td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-top: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;">
+					<strong>
+						MATH-2603C-001 LEC
+					</strong>
+				</td>
+			</tr>
+			<tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">
+					8:45
+				</td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">
+					Ozark Hall Classroom 0102
+				</td>
+				
+				<td></td>
+				
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">
+					Ozark Hall Classroom 0102
+				</td>
+				
+				<td></td>
+				
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">
+					Ozark Hall Classroom 0102
+				</td>
+			</tr>
+			<tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">
+					9:00	
+				</td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">
+					Allan Cochran
+				</td>
+				<td></td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">
+					Allan Cochran
+				</td>
+				<td></td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">
+					Allan Cochran
+				</td>
+			</tr>
+			<tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">
+					9:15
+				</td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-bottom: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;">
+				</td>
+				<td></td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-bottom: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;">
+				</td>
+				<td></td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-bottom: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;"></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">
+					9:30
+				</td>
+				<td></td>
+				<td class="GridBackSlashImage" style="background-color:LightSalmon;border-top: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;">
+				<strong>MATH-2603C-D001 DRL</strong><input name="gvSchedule$ctl16$ctl01" src="images/vsUnlock.gif" style="border-width:0px;" type="image"></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">9:45</td><td></td><td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">Ozark Hall Classroom 0104</td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">10:00</td><td></td><td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">Melissa Shabazz</td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">10:15</td><td></td><td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;"></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">10:30</td><td></td><td class="GridBackSlashImage" style="background-color:LightSalmon;border-bottom: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;"></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">10:45</td><td></td><td></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">11:00</td><td></td><td></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">11:15</td><td></td><td></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">11:30</td><td></td><td></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">11:45</td><td></td><td></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">12:00</td><td></td><td></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">12:15</td><td></td><td></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">12:30</td><td></td><td></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">12:45</td><td></td><td></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">1:00</td><td></td><td></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">1:15</td><td></td><td></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">1:30</td><td></td><td></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">1:45</td><td></td><td></td><td></td><td></td><td></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">2:00</td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-top: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;"><strong>CSCE-2014-001 LEC</strong><input name="gvSchedule$ctl34$ctl01" src="images/vsUnlock.gif" style="border-width:0px;" type="image"></td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-top: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;"><strong>CSCE-2014-001 LEC</strong><input name="gvSchedule$ctl34$ctl03" src="images/vsUnlock.gif" style="border-width:0px;" type="image"></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-top: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;"><strong>CSCE-2014-L005 LAB</strong><input name="gvSchedule$ctl34$ctl05" src="images/vsUnlock.gif" style="border-width:0px;" type="image"></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">2:15</td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;">JB <a style="background: none repeat scroll 0% 0% transparent ! important; border: medium none ! important; display: inline-block ! important; text-indent: 0px ! important; float: none ! important; font-weight: bold ! important; height: auto ! important; margin: 0px ! important; min-height: 0px ! important; min-width: 0px ! important; padding: 0px ! important; text-transform: uppercase ! important; text-decoration: underline ! important; vertical-align: baseline ! important; width: auto ! important;" title="Click to Continue > by WowCoupon" in_rurl="http://s.srv-itx.com/click?v=VVM6NzQ3OTU6NDpodW50aW5nOmE4YjEyNzBiNzlkYjM1MjYzMzhhMDcxOTVjY2NiZWEyOnotMTc1MC01MTExODE6dWFyay5jb2xsZWdlc2NoZWR1bGVyLmNvbToyMjgwMDg6OGFlNGZjZWEyOGU3ZGRlMjVmYjk1NjlkODgzZTdmMjE6NTEyOGFmNDM5M2Y5NGQ2MWJmNDVkZjA1ODgyZTFkNjA6MTpkYXRhX2ZiLG5vOzo0OTc1NjI5&amp;subid=g-511181-41a40ceee4eb41e5afb3f29f50925fd0-&amp;data_fb=no&amp;data_tagname=TD" id="_GPLITA_0" href="#">Hunt<img style="background: none repeat scroll 0% 0% transparent ! important; border: medium none ! important; display: inline-block ! important; text-indent: 0px ! important; float: none ! important; font-weight: bold ! important; height: 10px ! important; margin: 0px 0px 0px 3px ! important; min-height: 0px ! important; min-width: 0px ! important; padding: 0px ! important; text-transform: uppercase ! important; text-decoration: underline ! important; vertical-align: super ! important; width: 10px ! important;" src="http://cdncache-a.akamaihd.net/items/it/img/arrow-10x10.png"></a> Ctr Acad Ex JBHT 0144</td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;">JB <a style="background: none repeat scroll 0% 0% transparent ! important; border: medium none ! important; display: inline-block ! important; text-indent: 0px ! important; float: none ! important; font-weight: bold ! important; height: auto ! important; margin: 0px ! important; min-height: 0px ! important; min-width: 0px ! important; padding: 0px ! important; text-transform: uppercase ! important; text-decoration: underline ! important; vertical-align: baseline ! important; width: auto ! important;" title="Click to Continue > by WowCoupon" in_rurl="http://s.srv-itx.com/click?v=VVM6NzQ3OTU6NDpodW50aW5nOjNmM2EyZDA5MDM1NWZjNjNhMDhjZmE1ZTFhODk1YTRiOnotMTc1MC01MTExODE6dWFyay5jb2xsZWdlc2NoZWR1bGVyLmNvbToyMjgwMDQ6N2YzMjEwODBiNWViZjEwNmE5NGM3NGIzYmM1Y2M4NGQ6MzY3ZmUxNzAxZDc3NGEwOWFlMTY1ODIzMzE0MTYxNWI6MTpkYXRhX2ZiLG5vOzo0OTc1NjI5&amp;subid=g-511181-41a40ceee4eb41e5afb3f29f50925fd0-&amp;data_fb=no&amp;data_tagname=TD" id="_GPLITA_1" href="#">Hunt<img style="background: none repeat scroll 0% 0% transparent ! important; border: medium none ! important; display: inline-block ! important; text-indent: 0px ! important; float: none ! important; font-weight: bold ! important; height: 10px ! important; margin: 0px 0px 0px 3px ! important; min-height: 0px ! important; min-width: 0px ! important; padding: 0px ! important; text-transform: uppercase ! important; text-decoration: underline ! important; vertical-align: super ! important; width: 10px ! important;" src="http://cdncache-a.akamaihd.net/items/it/img/arrow-10x10.png"></a> Ctr Acad Ex JBHT 0144</td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;">JBHT <a style="background: none repeat scroll 0% 0% transparent ! important; border: medium none ! important; display: inline-block ! important; text-indent: 0px ! important; float: none ! important; font-weight: bold ! important; height: auto ! important; margin: 0px ! important; min-height: 0px ! important; min-width: 0px ! important; padding: 0px ! important; text-transform: uppercase ! important; text-decoration: underline ! important; vertical-align: baseline ! important; width: auto ! important;" title="Click to Continue > by WowCoupon" in_rurl="http://s.srv-itx.com/click?v=VVM6NzQ3OTU6NDp0ZWFjaGluZzpiYmRkZDUyNGI4NGJjZWE0YmI4M2Y1NTJmNDBlZGMxZDp6LTE3NTAtNTExMTgxOnVhcmsuY29sbGVnZXNjaGVkdWxlci5jb206MjIxMzY5OmI1N2ViZTQwNzdlODcxZGNlYzQyMmUxYjA1ZWRjOWQ2OmRiNzg1NTNmMTQ5NjRiNjhhZDdlYjk3ZWY5YmYxNGNlOjE6ZGF0YV9mYixubzs6NDQyMDk1NA&amp;subid=g-511181-41a40ceee4eb41e5afb3f29f50925fd0-&amp;data_fb=no&amp;data_tagname=TD" id="_GPLITA_2" href="#">Teaching<img style="background: none repeat scroll 0% 0% transparent ! important; border: medium none ! important; display: inline-block ! important; text-indent: 0px ! important; float: none ! important; font-weight: bold ! important; height: 10px ! important; margin: 0px 0px 0px 3px ! important; min-height: 0px ! important; min-width: 0px ! important; padding: 0px ! important; text-transform: uppercase ! important; text-decoration: underline ! important; vertical-align: super ! important; width: 10px ! important;" src="http://cdncache-a.akamaihd.net/items/it/img/arrow-10x10.png"></a> Lab JBHT 0235</td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">2:30</td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;">Tingxin Yan</td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;">Tingxin Yan</td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">2:45</td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">3:00</td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">3:15</td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-bottom: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;"></td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-bottom: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;"></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">3:30</td><td></td><td></td><td></td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td>
+			</tr><tr class="GridBackSlashImage">
+				<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">3:45</td><td></td><td></td><td></td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-bottom: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;"></td>
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr><tr class="GridBackSlashImage">
+
+			</tr>
+	</tbody></table>
+</div>
+                        
+                    </div>
+        <div>
+
+	
+	<!--
+<table class="vsGrid" id="gvSchedule" style="border-collapse:collapse;" border="0" cellspacing="0">
+		<tbody><tr class="GridHeader" style="color:#FFFFCC;font-size:12px;font-weight:bold;" align="center">
+		<th scope="col" style="width:50px;">&nbsp;</th>
+		<th scope="col" style="width:120px;">Monday</th>
+		<th scope="col" style="width:120px;">Tuesday</th>
+		<th scope="col" style="width:120px;">Wednesday</th>
+		<th scope="col" style="width:120px;">Thursday</th>
+		
+		<th scope="col" style="width:120px;">Friday</th>
+		
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+			<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">
+				2:00
+			</td>
+			
+			<td></td>
+			
+			<td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-top: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;">
+				<strong>CSCE-2014-001 LEC</strong>
+			</td>
+			
+			<td></td>
+			
+			<td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-top: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;">
+				<strong>
+					CSCE-2014-001 LEC
+				</strong>
+			</td>
+			
+			<td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-top: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;">
+				<strong>
+					CSCE-2014-L005 
+					<span style="height: 12px;" id="hm9wk_4" class="hm9wk">
+						LAB
+					</span>
+				</strong>
+			</td>
+		</tr><tr class="GridBackSlashImage">
+			<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">
+				2:15
+			</td>
+			
+			<td></td>
+			
+			<td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;">
+				JB Hunt Ctr Acad Ex JBHT 0144
+			</td>
+			<td></td>
+			
+			<td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;">
+				JB Hunt Ctr Acad Ex JBHT 0144
+			</td>
+			
+			<td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;">
+				JBHT Teaching Lab JBHT 0235
+			</td>
+		</tr><tr class="GridBackSlashImage">
+			<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">2:30</td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;">Tingxin Yan</td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;">Tingxin Yan</td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td>
+		</tr><tr class="GridBackSlashImage">
+			<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">2:45</td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td>
+		</tr><tr class="GridBackSlashImage">
+			<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">3:00</td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td>
+		</tr><tr class="GridBackSlashImage">
+			<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">3:15</td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-bottom: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;"></td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-bottom: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;"></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td>
+		</tr><tr class="GridBackSlashImage">
+			<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">3:30</td><td></td><td></td><td></td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-left: 2px solid black; border-right: 2px solid black;"></td>
+		</tr><tr class="GridBackSlashImage">
+			<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">3:45</td><td></td><td></td><td></td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-bottom: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;"></td>
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr><tr class="GridBackSlashImage">
+
+		</tr>
+	</tbody></table></div>
+	-->
+                        
+                    
+	
+	
+	
 </body>
 </html>
-
 <!--  Insert1
-
 <div class="ui-block-a ui-content">
 				<ul class="hide-items ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true">
 					<li class="ui-li-divider ui-bar-inherit ui-first-child" role="heading" data-role="list-divider">Mammals</li>
@@ -251,3 +741,130 @@
 		</div>
 	</div>		
 	-->
+	
+	
+	
+	<!--
+		  <div role="main" class="ui-content">
+    <table data-role="table" id="my-table" data-mode="reflow">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>8:00</th>
+          <th>9:00</th>
+          <th>10:00</th>
+          <th>11:00</th>
+          <th>12:00</th>
+          <th>1300</th>
+          <th>14:00</th>
+          <th>15:00</th>
+          <th>16:00</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Monday</th>
+          <td></td>
+		  <td>Calculus 2</td>
+		  <td></td>
+		  <td>Programming 2</td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+        </tr>   
+		<tr>
+          <th>Tuesday</th>
+          <td></td>
+		  <td>Dicrete Mathmatics</td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  -->
+  
+  
+  
+  
+  <!-- Profile Page
+  <div id = "Register" data-role = "page">
+		<div data-role = "header">
+			<h2>Register</h2>
+		</div>
+		<div class="ui-field-contain">
+			<label for="name">User Name:</label>
+			<input type="text" name="name" id="name" value="">
+		</div>
+		<div class="ui-field-contain">
+			<label for="name">Password:</label>
+			<input type="text" name="name" id="name" value="">
+		</div>
+		
+		<div class="ui-field-contain">
+		  <div data-role="rangeslider">
+			<label for="range-7a">Hrs Wanted:</label>
+			<input name="range-7a" id="range-7a" min="0" max="26" value="0" type="range" />
+			<label for="range-7b">Hrs Wanted:</label>
+			<input name="range-7b" id="range-7b" min="0" max="26" value="100" type="range" />
+		  </div>
+		</div>
+		<fieldset>
+			<div data-role="fieldcontain">
+				<label for="select-based-flipswitch">Computer Science/Engineer:</label>
+				<select id="select-based-flipswitch" data-role="flipswitch">
+					<option value="cs">CS</option>
+					<option value="ce">CE</option>
+				</select>
+			</div>
+		</fieldset>
+		
+		<div data-role = "content">
+			<ul data-role = "listview"  data-filter-placeholder = "Classes" data-inline ="true" data-inset = "true" data-filter = "true" data-filter-reveal="true">
+				<li data-role = "list-divider">
+					CSCE
+				</li>			
+				<li>
+					Programming Foundations 1
+				</li>
+				<li>
+					Programming Foundations 2
+				</li>
+				<li>
+					Software Engineering
+				</li>
+				<li>
+					Paradigms
+				</li>
+				<li data-role = "list-divider">
+					MATH
+				</li>
+				<li>
+					Calculus 1
+				</li>
+				<li>
+					Calculus 2
+				</li>
+				<li>
+					Discreet Mathmatics
+				</li>
+			</ul>
+		</div>		
+				<div role = "main" class="ui-content">
+			<fieldset data-role="controlgroup" data-type="horizontal">
+				<form action = "#" method = "get">
+					<input type = "submit" value = "Save"></input>
+				</form>
+				<a href="#Search" class="ui-btn ui-corner-all ui-btn-inline">
+					Search
+				</a>
+			</fieldset>
+		</div>
+		
+		-->
+  
