@@ -41,7 +41,7 @@ function SendEmail ($to, $subject, $content, $fromName) {
 	//Now, send mail :
 	//From - To :
 	$mailer->From       = $crendentials['email'];
-	$mailer->FromName   = $from; //Optional
+	$mailer->FromName   = $fromName; //Optional
 	$mailer->addAddress($to);  // Add a recipient
 
 	//Subject - Body :
