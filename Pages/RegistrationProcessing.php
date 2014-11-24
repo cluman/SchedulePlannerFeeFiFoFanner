@@ -3,10 +3,14 @@
 
 <?php
 
-//header('Location: EmailConfirmationForm.php');
+session_start();
+
+header('Location: EmailConfirmationForm.php');
 
 $password = $_POST["password"];
 $email = $_POST["email"];
+
+$_SESSION['email'] = $email;
 
 $salt = rand(100000, 999999);
 
@@ -73,12 +77,12 @@ $content =
 Welcome to FeeFiFoFanner!<br><br>
 Your confirmation code is <b>$confirmation_code</b><br><br>
 Thank you for subscribing! <br>
-"
+";
 
 
 require "email_config/SendEmailConfig.php";
 
-if (SendEmail ("raphaelrs55@gmail.com", $subject, $content, $fromName))
+if (SendEmail ($to, $subject, $content, $fromName))
 {
 	echo "<script>alert('Confirmation code sent via e-mail.');</script>";
 }
@@ -87,12 +91,6 @@ else
 	echo "Couldn't send confirmation code via e-mail. Please, try to <a href='ResetCode.php'>send your code again</a> later.<br>";
 	exit();
 }
-
-
-//($to, $subject, $content, $fromName)
-
-
-
 	
 	
 	
