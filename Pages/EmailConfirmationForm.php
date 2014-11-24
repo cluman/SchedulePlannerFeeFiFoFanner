@@ -1,4 +1,5 @@
 <html>
+
 <body>
 
 <form action="EmailConfirmationProcessing.php" onSubmit="return validateConf();" method="post" name="Form">
@@ -10,9 +11,23 @@ Insert your code: <input type="text" name="confirmation_code" value=""><br><br>
 <input type="submit">
 </form>
 
+
+<?php
+session_start();
+$email = $_SESSION['email'];
+
+echo "
+<script>
+document.forms['Form']['email'].value = '$email';
+</script>
+";
+
+?>
+
+
 <br><br>
 
-- <a href="ResetCode.php">Resend code</a></br>
+- <a href="ResendCode.php">Resend code</a></br>
 
 <script>
 
