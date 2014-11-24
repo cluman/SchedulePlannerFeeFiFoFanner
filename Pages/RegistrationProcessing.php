@@ -40,8 +40,7 @@ if ($conn->connect_error) {
 } 
 
 
-$sql = "SELECT code FROM Registration WHERE email='$email'";
-$result = $conn->query($sql);
+$result = $conn->query("SELECT code FROM Registration WHERE email='$email'");
 
 if ($result->num_rows) {
 	echo ("E-mail already registered! <br>"); 
@@ -49,8 +48,7 @@ if ($result->num_rows) {
 	exit(); 
 }
 
-$sql2 = "SELECT * FROM User WHERE email='$email'";
-$result2 = $conn->query($sql2);
+$result2 = $conn->query("SELECT * FROM User WHERE email='$email'");
 if ($result2->num_rows) {
 	echo ("E-mail already registered! <br>"); 
 	echo ("Click here to login. <br>"); //TODO
