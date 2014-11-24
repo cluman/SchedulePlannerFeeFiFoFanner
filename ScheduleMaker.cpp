@@ -55,27 +55,7 @@ public:
     string getSemesters(){ return semester;}
     void setSemesters(string sem){ semester = sem;}
     
-    // misc functions
-//    bool operator == (const Course& c) const {
-//        return !Compare(c);
-//    }
-//
-//    bool operator < (const Course& c) const {
-//        return Compare(c)<0;   
-//    }
-    
-    int Compare (const Course& c) {
-
-//        if (this->getTimeStart() < c.getTimeStart()) {
-//                return -1;
-//        }
-//        else if (this->getTimeStart() > c.getTimeStart()) {
-//                return 1;
-//        }
-        
-        return 0;
-    }
-    
+    // misc functions  
     void print(){
             cout << "semester is " << this->getSemesters() << endl;
             cout << "course ID is " << this->getID() << endl;
@@ -254,7 +234,6 @@ public:
     }
     
     void setClasses(string str){
-        string open = "Open";
         vector<string> tokenV;
     
         // set course member variables
@@ -511,46 +490,59 @@ void printHTML(Course listOfCourses[], int num){
  cout << "</html>" << endl;
 }
 
-void printDays(Course listOfCourses[], int num){
+void printDays(vector<Course> listOfCourses, int num){
     cout << "Monday classes: \n------------------------" << endl;    
     for (int i = 0; i<num; i++) {
-        if(listOfCourses[i].findMonday() == true)
-                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;   
+        if(listOfCourses.at(i).findMonday() == true)
+                cout << listOfCourses.at(i).getTitle() << " - " << listOfCourses.at(i).getInstructor() 
+                     << " at " << listOfCourses.at(i).getTimeStart() << " to " << listOfCourses.at(i).getTimeEnd() << endl;   
     }
     cout << "    \n\n";
    
     cout << "Tuesday classes: \n------------------------" << endl;   
     for (int i = 0; i<num; i++) {
-        if(listOfCourses[i].findTuesday() == true)
-                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;
+        if(listOfCourses.at(i).findTuesday() == true)
+                cout << listOfCourses.at(i).getTitle() << " - " << listOfCourses.at(i).getInstructor() 
+                     << " at " << listOfCourses.at(i).getTimeStart() << " to " << listOfCourses.at(i).getTimeEnd() << endl;
     }
     cout << "    \n\n";
     
     cout << "Wednesday classes: \n------------------------" << endl;  
     for (int i = 0; i<num; i++) {
-        if(listOfCourses[i].findWednesday() == true)
-                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;
+        if(listOfCourses.at(i).findWednesday() == true)
+                cout << listOfCourses.at(i).getTitle() << " - " << listOfCourses.at(i).getInstructor() 
+                     << " at " << listOfCourses.at(i).getTimeStart() << " to " << listOfCourses.at(i).getTimeEnd() << endl;
     }
     cout << "    \n\n";
     
     cout << "Thursday classes: \n------------------------" << endl; 
     for (int i = 0; i<num; i++) {
-        if(listOfCourses[i].findThursday() == true)
-                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;
+        if(listOfCourses.at(i).findThursday() == true)
+                cout << listOfCourses.at(i).getTitle() << " - " << listOfCourses.at(i).getInstructor() 
+                     << " at " << listOfCourses.at(i).getTimeStart() << " to " << listOfCourses.at(i).getTimeEnd() << endl;
     }
     cout << "    \n\n";
     
     cout << "Friday classes: \n------------------------" << endl;  
     for (int i = 0; i<num; i++) {
-        if(listOfCourses[i].findFriday() == true)
-                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;
+        if(listOfCourses.at(i).findFriday() == true)
+                cout << listOfCourses.at(i).getTitle() << " - " << listOfCourses.at(i).getInstructor() 
+                     << " at " << listOfCourses.at(i).getTimeStart() << " to " << listOfCourses.at(i).getTimeEnd() << endl;
     }
     cout << "    \n\n";
+}
+
+bool operator<(Course c1, Course c2){
+        if(c1.getTimeStart() < c2.getTimeStart())
+                return true;
+        else
+                return false;
 }
 
 int main()
 {
     Course listOfCourses[50];
+    vector<Course> ListOfCourses;
     string classes[50];
     
     int numOfCourses=0;
@@ -566,10 +558,15 @@ int main()
     for (int i = 0; classes[i] != ""; i++)
     {
         listOfCourses[i].setClasses(classes[i]);
+        ListOfCourses.push_back(listOfCourses[i]);
         numOfCourses++;
     }
     
-    printHTML (listOfCourses, numOfCourses);
+    printDays (ListOfCourses, numOfCourses);
+    
+    sort(ListOfCourses.begin(), ListOfCourses.end());
+ 
+    printDays (ListOfCourses, numOfCourses);
         
     return 0;
 }
