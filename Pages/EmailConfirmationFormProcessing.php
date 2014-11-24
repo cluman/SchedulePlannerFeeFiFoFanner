@@ -1,5 +1,7 @@
 <?php
 
+header('Location: Login.php');
+
 $entered_confirmation_code = $_POST["confirmation_code"];
 $email = $_POST["email"];
 
@@ -10,22 +12,24 @@ $dbname = "Scheduler";
 $db = mysql_connect($servername, $username, $password) or die("Database Error");
 mysql_select_db($dbname,$db);
 
+//Verify if e-mail is already registered
+/* $sql = "SELECT * FROM User WHERE email='$email'";
+$resource = mysql_query($sql);
+if($resource === false)
+{	die("Database Error <br>"); }
+$grab = mysql_fetch_assoc($resource);
+if (mysql_num_rows($resource) > 0) 
+{   echo "E-mail already confirmed! <br>Try <a href='Login.php'>login</a>."; die(); } */ //Commented only for tests
+
 $sql = "SELECT * FROM Registration WHERE email='$email'";
 $resource = mysql_query($sql);
-
 if($resource === false)
-{
-	die("Database Error<br>");
-}
+{	die("Database Error <br>"); }
 
 $grab = mysql_fetch_assoc($resource);
-
-//TODO verify if username or email are already registered
-
 if (mysql_num_rows($resource) <= 0) 
-{
-    echo "E-mail not registered!";
-}
+{   echo "E-mail not registered."; }
+
 else
 {
 	$confirmation_code = $grab['code'];
@@ -37,24 +41,25 @@ else
 	}
 	else 
 	{
-		echo "Confirmation succeeded.<br>";
-		
-		// TODO criar nova entrada em 'User'
-
 		$password = $grab['password'];
 		$salt = $grab['salt'];
-		
-		$sql = "INSERT INTO user (email, password, salt) VALUES('$email', '$password', '$salt')";		
-		if (mysql_query($sql))
+					
+		if (mysql_query("INSERT INTO user (email, password, salt) VALUES('$email', '$password', '$salt')"))
 			echo "Registration succeeded. <br>";
+		//else
+			//die ("Couldn't register. Please, try again later or try again with a different e-mail. <br>"); //Commented only for tests
+		
+		/* if(mysql_query("DELETE FROM registration WHERE email='$email'") == false)
+		{
+			echo "Error in temporary database. Try <a href='Login.php'>login</a>.";
+			die();
+		}		
 		else
-			echo "Couldn't register. Please, try again later. <br>";
+			{
+				echo "Try <a href='Login.php'>login</a>.";
+			} */ //Commented only for tests
 		
-		// TODO deletar banco entrada de 'registration'
-		
-		//$sql = "DELETE FROM registration WHERE email='$email'";
-		
-		
+		echo "<script> alert ('Confirmation succeeded.') </script>";
 	}
 	
     /* echo "<table><tr><th>ID</th><th>Name</th></tr>";
