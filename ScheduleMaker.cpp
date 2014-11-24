@@ -11,6 +11,7 @@
 #include <vector>
 #include <algorithm>
 #include <time.h>
+#include <fstream>
 
 using namespace std;
 int tokenSize;
@@ -433,61 +434,77 @@ void prints(Course listOfCourses[], int num){
     cout << "    \n\n";
 }
 
-void printHTML(Course listOfCourses[], int num){
- cout << "<html>" << endl;
- cout << "<div id = 'sign-in' data-role = 'page'>" << endl;
- cout << "<div data-role = 'header'>" << endl;
- cout << "<h1>	Monday classes:	</h1>" << endl;
+void printHTML(vector<Course> listOfCourses, int num){
+ofstream output;
+string outputFilename = "testing.html";
+output.open(outputFilename.c_str());
+ if (!output) {
+     cerr << "Can't open output file " << outputFilename << endl;
+     exit(1);
+ } 
+ else{
+ output << "<html>" << endl;
+ output << "<div id = 'sign-in' data-role = 'page'>" << endl;
+ output << "<div data-role = 'header'>" << endl;
+ output << "<h1>	Monday classes:	</h1>" << endl;
 
     for (int i = 0; i<num; i++) {
-        if(listOfCourses[i].findMonday() == true){
-                cout << "<p>";
-                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;   
-                cout << "</p>" << endl;
+        if(listOfCourses.at(i).findMonday() == true){
+                output << "<p>" << endl;
+                output << listOfCourses.at(i).getTitle() << " - " << listOfCourses.at(i).getInstructor() 
+                     << " at " << listOfCourses.at(i).getTimeStart() << " to " << listOfCourses.at(i).getTimeEnd() << endl;   
+                output << "</p>" << endl;
         }
     }
    
-    cout << "<h1> Tuesday classes: </h1>" << endl;   
+    output << "<h1> Tuesday classes: </h1>" << endl;   
     for (int i = 0; i<num; i++) {
-        if(listOfCourses[i].findTuesday() == true){
-                cout << "<p>";
-                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;
-                cout << "</p>" << endl;
+        if(listOfCourses.at(i).findTuesday() == true){
+                output << "<p>" << endl;
+                output << listOfCourses.at(i).getTitle() << " - " << listOfCourses.at(i).getInstructor() 
+                     << " at " << listOfCourses.at(i).getTimeStart() << " to " << listOfCourses.at(i).getTimeEnd() << endl;
+                output << "</p>" << endl;
         }
     }
 
     
-    cout << "<h1> Wednesday classes: </h1>" << endl;  
+    output << "<h1> Wednesday classes: </h1>" << endl;  
     for (int i = 0; i<num; i++) {
-        if(listOfCourses[i].findWednesday() == true){
-                cout << "<p>";
-                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;
-                cout << "</p>" << endl;
+        if(listOfCourses.at(i).findWednesday() == true){
+                output << "<p>" << endl;
+                output << listOfCourses.at(i).getTitle() << " - " << listOfCourses.at(i).getInstructor() 
+                     << " at " << listOfCourses.at(i).getTimeStart() << " to " << listOfCourses.at(i).getTimeEnd() << endl;
+                output << "</p>" << endl;
         }
     }
 
     
-    cout << "<h1> Thursday classes: </h1>" << endl; 
+    output << "<h1> Thursday classes: </h1>" << endl; 
     for (int i = 0; i<num; i++) {
-        if(listOfCourses[i].findThursday() == true){
-                cout << "<p>";
-                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;   
-                cout << "</p>" << endl;
+        if(listOfCourses.at(i).findThursday() == true){
+                output << "<p>" << endl;
+                output << listOfCourses.at(i).getTitle() << " - " << listOfCourses.at(i).getInstructor() 
+                     << " at " << listOfCourses.at(i).getTimeStart() << " to " << listOfCourses.at(i).getTimeEnd() << endl;   
+                output << "</p>" << endl;
         }
     }
 
     
-    cout << "<h1>Friday classes: </h1>" << endl;  
+    output << "<h1>Friday classes: </h1>" << endl;  
     for (int i = 0; i<num; i++) {
-        if(listOfCourses[i].findFriday() == true){
-                cout << "<p>";
-                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;
-                cout << "</p>" << endl;
+        if(listOfCourses.at(i).findFriday() == true){
+                output << "<p>" << endl;
+                output << listOfCourses.at(i).getTitle() << " - " << listOfCourses.at(i).getInstructor() 
+                     << " at " << listOfCourses.at(i).getTimeStart() << " to " << listOfCourses.at(i).getTimeEnd() << endl;
+                output << "</p>" << endl;
         }
     }
- cout << "</div>" << endl;
- cout << "</div>" << endl;
- cout << "</html>" << endl;
+ output << "</div>" << endl;
+ output << "</div>" << endl;
+ output << "</html>" << endl;
+ cout << "write succesful\n";
+ }
+output.close();
 }
 
 void printDays(vector<Course> listOfCourses, int num){
@@ -545,6 +562,7 @@ int main()
     vector<Course> ListOfCourses;
     string classes[50];
     
+    
     int numOfCourses=0;
     
     
@@ -562,11 +580,13 @@ int main()
         numOfCourses++;
     }
     
-    printDays (ListOfCourses, numOfCourses);
+    //printDays (ListOfCourses, numOfCourses);
     
     sort(ListOfCourses.begin(), ListOfCourses.end());
  
-    printDays (ListOfCourses, numOfCourses);
+    //printDays (ListOfCourses, numOfCourses);
+    
+    printHTML(ListOfCourses, numOfCourses);
         
     return 0;
 }
