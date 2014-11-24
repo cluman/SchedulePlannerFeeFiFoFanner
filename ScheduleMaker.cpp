@@ -11,6 +11,7 @@
 #include <vector>
 #include <algorithm>
 #include <time.h>
+#include <fstream>
 
 using namespace std;
 int tokenSize;
@@ -18,19 +19,19 @@ int tokenSize;
 class Course{
 private:
     string courseID, title, instructor, location, dayOfWeek, timeStart, timeEnd, semester;
-    int hours, classNumber;
+    int hours, classNumber, End, Start;
 
 public:
     // constructors
     Course(){ semester = ""; courseID = ""; title = ""; instructor = "";
         location = ""; hours = 0; classNumber = 0; dayOfWeek = "";
-        timeStart = "", timeEnd = ""; 
+        timeStart = "", timeEnd = "", End = 0, Start = 0; 
     }
     Course(string semester, string ID, string className, string prof, string loc, 
-           int hrs, int classNum, string day, string timeS, string timeE){
+           int hrs, int classNum, string day, string timeS, string timeE, int intEnd, int intStart){
         courseID = ID; title = className; instructor = prof; location = loc; 
         hours = hrs; classNumber = classNum; dayOfWeek = day;
-        timeStart = timeS, timeEnd = timeE;
+        timeStart = timeS, timeEnd = timeE, End = intEnd, Start = intStart;
     }
     
     // getters and setters
@@ -54,8 +55,18 @@ public:
     void setDay(string day){ dayOfWeek = day;}
     string getSemesters(){ return semester;}
     void setSemesters(string sem){ semester = sem;}
+    int getStart(){ return Start;}
+    void setStart(int starts){ Start = starts;}
+    int getEnd(){ return End;}
+    void setEnd(int ends){ End = ends;}
     
     // misc functions  
+    static bool compareTimes(Course c1, Course c2){
+        if(c1.Start < c2.Start)
+            return true;
+        else
+            return false;
+    } 
     void print(){
             cout << "semester is " << this->getSemesters() << endl;
             cout << "course ID is " << this->getID() << endl;
@@ -167,72 +178,6 @@ public:
             
     }
     
-    void convertFromMilitary(string str, string &s){
-        string pm = "PM", thirteen = "13", fourteen = "14", fifteen = "15", sixteen = "16", seventeen = "17", 
-               eighteen = "18", nineteen = "19", twenty = "20", twentyone = "21", twentytwo = "22", twentythree = "23";
-        size_t found = str.find(pm);
-        size_t find1 = str.find(thirteen);
-        size_t find2 = str.find(fourteen);
-        size_t find3 = str.find(fifteen);
-        size_t find4 = str.find(sixteen);
-        size_t find5 = str.find(seventeen);
-        size_t find6 = str.find(eighteen);
-        size_t find7 = str.find(nineteen);
-        size_t find8 = str.find(twenty);
-        size_t find9 = str.find(twentyone);
-        size_t find10 = str.find(twentytwo);
-        size_t find11 = str.find(twentythree);
-    
-        if(found != std::string::npos){
-            if(find1 != std::string::npos){
-                str.replace(0, 2, " 1");
-                s = str;
-            }
-            else if(find2 != std::string::npos){
-                str.replace(0, 2, " 2");
-                s = str;
-            }
-            else if(find3 != std::string::npos){
-                str.replace(0, 2, " 3");
-                s = str;
-            }
-            else if(find4 != std::string::npos){
-                str.replace(0, 2, " 4");
-                s = str;
-            }
-            else if(find5 != std::string::npos){
-                str.replace(0, 2, " 5");
-                s = str;
-            }
-            else if(find6 != std::string::npos){
-                str.replace(0, 2, " 6");
-                s = str;
-            }
-            else if(find7 != std::string::npos){
-                str.replace(0, 2, " 7");
-                s = str;
-            }
-            else if(find8 != std::string::npos){
-                str.replace(0, 2, " 8");
-                s = str;
-            }
-            else if(find9 != std::string::npos){
-                str.replace(0, 2, " 9");
-                s = str;
-            }
-            else if(find10 != std::string::npos){
-                str.replace(0, 2, "10");
-                s = str;
-            }
-            else if(find11 != std::string::npos){
-                str.replace(0, 2, "11");
-                s = str;
-            }
-            else
-                s = str;
-        }      
-    }
-    
     void setClasses(string str){
         vector<string> tokenV;
     
@@ -277,16 +222,30 @@ public:
                         string converted1 = "", converted2 = "";
                         convertToMilitary(timeToken[0], converted1);
                         convertToMilitary(timeToken[1], converted2);
+                        int timeAsInt = strtol(converted1.c_str(), NULL, 10);
+                        int timeAsInt2 = strtol(converted2.c_str(), NULL, 10);
+                        
+                        this->setStart(timeAsInt);
+                        this->setEnd(timeAsInt2);
                         this->setTimeStart(converted1);
                         this->setTimeEnd(converted2); 
                 }
                 else if(found == std::string::npos && found1 != std::string::npos){
                         string convert = "";
                         convertToMilitary(timeToken[1], convert);
+                        int timeAsInt = strtol(timeToken[0].c_str(), NULL, 10);
+                        int timeAsInt2 = strtol(convert.c_str(), NULL, 10);
+                        
+                        this->setStart(timeAsInt);
+                        this->setEnd(timeAsInt2);
                         this->setTimeStart(timeToken[0]);
                         this->setTimeEnd(convert);
                 }
                 else{
+                        int timeAsInt = strtol(timeToken[0].c_str(), NULL, 10);
+                        int timeAsInt2 = strtol(timeToken[1].c_str(), NULL, 10);
+                        this->setStart(timeAsInt);
+                        this->setEnd(timeAsInt2);
                         this->setTimeStart(timeToken[0]);
                         this->setTimeEnd(timeToken[1]);
                 }
@@ -379,6 +338,17 @@ public:
         else
             return false;  
     }
+    Course& Course::operator=(Course c2){
+        this->setDay(c2.getDay());
+        this->setTitle(c2.getTitle());
+        this->setInstructor(c2.getInstructor());
+        this->setLocation(c2.getLocation());
+        this->setHours(c2.getHours());
+        this->setClassNumber(c2.getClassNumber());
+        this->setTimeStart(c2.getTimeStart());
+        this->setTimeEnd(c2.getTimeEnd());
+        this->setSemesters(c2.getSemesters());
+    }
 };
 
 void prints(Course listOfCourses[], int num){
@@ -433,61 +403,77 @@ void prints(Course listOfCourses[], int num){
     cout << "    \n\n";
 }
 
-void printHTML(Course listOfCourses[], int num){
- cout << "<html>" << endl;
- cout << "<div id = 'sign-in' data-role = 'page'>" << endl;
- cout << "<div data-role = 'header'>" << endl;
- cout << "<h1>	Monday classes:	</h1>" << endl;
+void printHTML(vector<Course> listOfCourses, int num){
+ofstream output;
+string outputFilename = "testing.html";
+output.open(outputFilename.c_str());
+ if (!output) {
+     cerr << "Can't open output file " << outputFilename << endl;
+     exit(1);
+ } 
+ else{
+ output << "<html>" << endl;
+ output << "<div id = 'sign-in' data-role = 'page'>" << endl;
+ output << "<div data-role = 'header'>" << endl;
+ output << "<h1>	Monday classes:	</h1>" << endl;
 
     for (int i = 0; i<num; i++) {
-        if(listOfCourses[i].findMonday() == true){
-                cout << "<p>";
-                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;   
-                cout << "</p>" << endl;
+        if(listOfCourses.at(i).findMonday() == true){
+                output << "<p>" << endl;
+                output << listOfCourses.at(i).getTitle() << " - " << listOfCourses.at(i).getInstructor() 
+                     << " at " << listOfCourses.at(i).getTimeStart() << " to " << listOfCourses.at(i).getTimeEnd() << endl;   
+                output << "</p>" << endl;
         }
     }
    
-    cout << "<h1> Tuesday classes: </h1>" << endl;   
+    output << "<h1> Tuesday classes: </h1>" << endl;   
     for (int i = 0; i<num; i++) {
-        if(listOfCourses[i].findTuesday() == true){
-                cout << "<p>";
-                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;
-                cout << "</p>" << endl;
+        if(listOfCourses.at(i).findTuesday() == true){
+                output << "<p>" << endl;
+                output << listOfCourses.at(i).getTitle() << " - " << listOfCourses.at(i).getInstructor() 
+                     << " at " << listOfCourses.at(i).getTimeStart() << " to " << listOfCourses.at(i).getTimeEnd() << endl;
+                output << "</p>" << endl;
         }
     }
 
     
-    cout << "<h1> Wednesday classes: </h1>" << endl;  
+    output << "<h1> Wednesday classes: </h1>" << endl;  
     for (int i = 0; i<num; i++) {
-        if(listOfCourses[i].findWednesday() == true){
-                cout << "<p>";
-                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;
-                cout << "</p>" << endl;
+        if(listOfCourses.at(i).findWednesday() == true){
+                output << "<p>" << endl;
+                output << listOfCourses.at(i).getTitle() << " - " << listOfCourses.at(i).getInstructor() 
+                     << " at " << listOfCourses.at(i).getTimeStart() << " to " << listOfCourses.at(i).getTimeEnd() << endl;
+                output << "</p>" << endl;
         }
     }
 
     
-    cout << "<h1> Thursday classes: </h1>" << endl; 
+    output << "<h1> Thursday classes: </h1>" << endl; 
     for (int i = 0; i<num; i++) {
-        if(listOfCourses[i].findThursday() == true){
-                cout << "<p>";
-                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;   
-                cout << "</p>" << endl;
+        if(listOfCourses.at(i).findThursday() == true){
+                output << "<p>" << endl;
+                output << listOfCourses.at(i).getTitle() << " - " << listOfCourses.at(i).getInstructor() 
+                     << " at " << listOfCourses.at(i).getTimeStart() << " to " << listOfCourses.at(i).getTimeEnd() << endl;   
+                output << "</p>" << endl;
         }
     }
 
     
-    cout << "<h1>Friday classes: </h1>" << endl;  
+    output << "<h1>Friday classes: </h1>" << endl;  
     for (int i = 0; i<num; i++) {
-        if(listOfCourses[i].findFriday() == true){
-                cout << "<p>";
-                cout << listOfCourses[i].getTitle() << " - " << listOfCourses[i].getInstructor() << " at " << listOfCourses[i].getTimeStart() << " to " << listOfCourses[i].getTimeEnd() << endl;
-                cout << "</p>" << endl;
+        if(listOfCourses.at(i).findFriday() == true){
+                output << "<p>" << endl;
+                output << listOfCourses.at(i).getTitle() << " - " << listOfCourses.at(i).getInstructor() 
+                     << " at " << listOfCourses.at(i).getTimeStart() << " to " << listOfCourses.at(i).getTimeEnd() << endl;
+                output << "</p>" << endl;
         }
     }
- cout << "</div>" << endl;
- cout << "</div>" << endl;
- cout << "</html>" << endl;
+ output << "</div>" << endl;
+ output << "</div>" << endl;
+ output << "</html>" << endl;
+ cout << "write succesful\n";
+ }
+output.close();
 }
 
 void printDays(vector<Course> listOfCourses, int num){
@@ -532,18 +518,81 @@ void printDays(vector<Course> listOfCourses, int num){
     cout << "    \n\n";
 }
 
-bool operator<(Course c1, Course c2){
-        if(c1.getTimeStart() < c2.getTimeStart())
-                return true;
-        else
-                return false;
-}
+void convertFromMilitary(string str, string &s){
+        string pm = "PM", twelve = "12", thirteen = "13", fourteen = "14", fifteen = "15", sixteen = "16", seventeen = "17", 
+               eighteen = "18", nineteen = "19", twenty = "20", twentyone = "21", twentytwo = "22", twentythree = "23";
+        size_t found = str.find(pm);
+        size_t found12 = str.find(twelve);
+        size_t find1 = str.find(thirteen);
+        size_t find2 = str.find(fourteen);
+        size_t find3 = str.find(fifteen);
+        size_t find4 = str.find(sixteen);
+        size_t find5 = str.find(seventeen);
+        size_t find6 = str.find(eighteen);
+        size_t find7 = str.find(nineteen);
+        size_t find8 = str.find(twenty);
+        size_t find9 = str.find(twentyone);
+        size_t find10 = str.find(twentytwo);
+        size_t find11 = str.find(twentythree);
+    
+        if(found != std::string::npos && found12 == std::string::npos){
+            if(find1 != std::string::npos){
+                str.replace(0, 2, " 1");
+                s = str;
+            }
+            else if(find2 != std::string::npos){
+                str.replace(0, 2, " 2");
+                s = str;
+            }
+            else if(find3 != std::string::npos){
+                str.replace(0, 2, " 3");
+                s = str;
+            }
+            else if(find4 != std::string::npos){
+                str.replace(0, 2, " 4");
+                s = str;
+            }
+            else if(find5 != std::string::npos){
+                str.replace(0, 2, " 5");
+                s = str;
+            }
+            else if(find6 != std::string::npos){
+                str.replace(0, 2, " 6");
+                s = str;
+            }
+            else if(find7 != std::string::npos){
+                str.replace(0, 2, " 7");
+                s = str;
+            }
+            else if(find8 != std::string::npos){
+                str.replace(0, 2, " 8");
+                s = str;
+            }
+            else if(find9 != std::string::npos){
+                str.replace(0, 2, " 9");
+                s = str;
+            }
+            else if(find10 != std::string::npos){
+                str.replace(0, 2, "10");
+                s = str;
+            }
+            else if(find11 != std::string::npos){
+                str.replace(0, 2, "11");
+                s = str;
+            }
+            else
+                s = str;
+        }      
+        else 
+            s = str;
+    }
 
 int main()
 {
     Course listOfCourses[50];
     vector<Course> ListOfCourses;
     string classes[50];
+    
     
     int numOfCourses=0;
     
@@ -562,11 +611,24 @@ int main()
         numOfCourses++;
     }
     
-    printDays (ListOfCourses, numOfCourses);
+    //printDays (ListOfCourses, numOfCourses);
     
-    sort(ListOfCourses.begin(), ListOfCourses.end());
+    std::sort(ListOfCourses.begin(), ListOfCourses.end(), Course::compareTimes );
+    
+    for (int i = 0; i < numOfCourses; i++)
+    {
+        string convert = "", convert1 = "";
+        string str = ListOfCourses.at(i).getTimeStart();
+        string str1 = ListOfCourses.at(i).getTimeEnd();
+        convertFromMilitary(str, convert);
+        convertFromMilitary(str1, convert1);
+        ListOfCourses.at(i).setTimeStart(convert);
+        ListOfCourses.at(i).setTimeEnd(convert1);
+    }
  
     printDays (ListOfCourses, numOfCourses);
+    
+    //printHTML(ListOfCourses, numOfCourses);
         
     return 0;
 }
