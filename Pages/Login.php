@@ -3,10 +3,22 @@
 <body>
 
 <form action="LoginProcessing.php" onSubmit="return validateForm();" method="post" name="Form">
-E-mail: <input id="email" type="text" name="email" value = "aaa@"><br>
-Password: <input type="password" name="password" value = "123"><br>
+E-mail: <input id="email" type="text" name="email" value = ""><br>
+Password: <input type="password" name="password"><br>
 <input type="submit">
 </form>
+
+<?php
+session_start();
+$email = $_SESSION['email'];
+
+echo "
+<script>
+document.forms['Form']['email'].value = '$email';
+</script>
+";
+
+?>
 
 <script>
 
