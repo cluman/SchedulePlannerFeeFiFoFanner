@@ -1,0 +1,117 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.7.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Nov 24, 2014 at 11:17 PM
+-- Server version: 5.6.20
+-- PHP Version: 5.5.15
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `db1.2`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courses`
+--
+
+CREATE TABLE IF NOT EXISTS `courses` (
+  `Status` varchar(6) DEFAULT 'Open',
+  `ID` varchar(15) NOT NULL,
+  `Title` varchar(80) NOT NULL,
+  `Hours` int(1) NOT NULL,
+  `Semesters` varchar(10) NOT NULL,
+  `Days` varchar(26) DEFAULT NULL,
+  `Time` varchar(20) DEFAULT NULL,
+  `Location` varchar(8) DEFAULT NULL,
+  `Instructor` varchar(32) DEFAULT NULL,
+`Index` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`Status`, `ID`, `Title`, `Hours`, `Semesters`, `Days`, `Time`, `Location`, `Instructor`, `Index`) VALUES
+('Open', 'CSCE2004 001', 'Programming Foundations I', 4, 'Sp, Fa', 'Mon, Wed, Fri', '12:55 PM - 1:45 PM', 'HILL0206', 'John Gauch', 5),
+('Open', 'CSCE2004 L001', 'Programming Foundations I', 4, 'Sp, Fa', 'Tue', '4:00 PM - 5:45 PM', 'JBHT0235', 'William Bouillon', 6),
+('Open', 'CSCE2004 L002', 'Programming Foundations I', 4, 'Sp, Fa', 'Tue', '2:00 PM - 3:45 PM', 'JBHT0235', 'Luke Godfrey', 7),
+('Open', 'CSCE2004 L003', 'Programming Foundations I', 4, 'Sp, Fa', 'Thu', '2:00 PM - 3:45 PM', 'JBHT0235', 'Benjamin Gooding', 8),
+('Open', 'CSCE2004 L004', 'Programming Foundations I', 4, 'Sp, Fa', 'Mon', '2:00 PM - 3:45 PM', 'JBHT0235', 'Eugene Cartwright', 9),
+('Open', 'CSCE2004 L005', 'Programming Foundations I', 4, 'Sp, Fa', 'Wed', '2:00 PM - 3:45 PM', 'JBHT0235', 'William Bouillon', 10),
+('Open', 'CSCE2004 L006', 'Programming Foundations I', 4, 'Sp, Fa', 'Fri', '2:00 PM - 3:45 PM', 'JBHT0235', 'Luke Godfrey', 11),
+('Open', 'CSCE2004 L007', 'Programming Foundations I', 4, 'Sp, Fa', 'Mon', '4:10 PM - 5:55 PM', 'JBHT0235', 'Benjamin Gooding', 12),
+('Open', 'CSCE2004 L008', 'Programming Foundations I ', 4, 'Sp, Fa', 'Wed', '4:10 PM - 5:55 PM', 'JBHT0235', 'William Bouillon', 13),
+('Open', 'CSCE2004 L009', 'Programming Foundations I ', 4, 'Sp, Fa', 'Fri', '8:30 AM - 10:20 AM', 'JBHT0235', 'Luke Godfrey', 14),
+('Open', 'CSCE2004 L010', 'Programming Foundations I ', 4, 'Sp, Fa', 'Thu', '8:00 AM - 9:45 AM', 'JBHT0235', 'Benjamin Gooding', 15),
+('Open', 'CSCE2014 001', 'Programming Foundations II', 4, 'Sp, Fa', 'Tue, Thu ', '3:30 PM - 4:45 PM', 'JBHT0144', 'Wing Li', 16),
+('Open', 'CSCE2014 L001', 'Programming Foundations II', 4, 'Sp, Fa', 'Mon ', '7:30 AM - 9:15 AM', 'JBHT0235', 'Zachariah Kindle', 17),
+('Open', 'CSCE2014 L001', 'Programming Foundations II', 4, 'Sp, Fa', 'Mon', ' 7:30 AM - 9:15 AM', 'JBHT0235', 'Zachariah Kindle', 18),
+('Open', 'CSCE2014 L002', 'Programming Foundations II', 4, 'Sp, Fa', 'Wed', '7:30 AM - 9:15 AM', 'JBHT0235', 'Zachariah Kindle', 19),
+('Open', 'CSCE2014 L003', 'Programming Foundations II', 4, 'Sp, Fa', 'Thu', '5:00 PM - 6:45 PM', 'JBHT0235', 'Zachariah Kindle', 20),
+('Open', 'CSCE2114 001', 'Digital Design', 4, 'Sp, Fa', 'Tue, Thu', '11:00 AM - 12:15 PM', 'JBHT0216', 'Pat Parkerson', 21),
+('Open', 'CSCE2114 L001', 'Digital Design', 4, 'Sp, Fa', 'Tue', '3:30 PM - 5:15 PM', 'JBHT0243', 'Abazar Sadeghian', 22),
+('Open', 'CSCE2114 L002', 'Digital Design', 4, 'Sp, Fa', 'Thu', '3:30 PM - 5:15 PM', 'JBHT0243', 'Abazar Sadeghian', 23),
+('Open', 'CSCE2114 L003', 'Digital Design', 4, 'Sp, Fa', 'Fri', '2:00 PM - 3:45 PM', 'JBHT0243', 'Nicolas Edwards', 24),
+('Open', 'CSCE2114 L004', 'Digital Design', 4, 'Sp, Fa', 'Wed', '2:00 PM - 3:45 PM', 'JBHT0243', 'Nicolas Edwards', 25),
+('Open', 'CSCE2114 L005', 'Digital Design', 4, 'Sp, Fa', 'Tue', '8:00 AM - 9:45 AM', 'JBHT0243', 'Abazar Sadeghian', 26),
+('Open', 'CSCE2114 L006', 'Digital Design', 4, 'Sp, Fa', 'Thu', '8:00 AM - 9:45 AM', 'JBHT0243', 'Eugene Cartwright', 27),
+('Open', 'CSCE2114 L007', 'Digital Design', 4, 'Sp, Fa', 'Wed', '8:35 AM - 10:20 AM', 'JBHT0243', 'Nicolas Edwards', 28),
+('Open', 'CSCE2114 L008', 'Digital Design', 4, 'Sp, Fa', 'Mon', '8:35 AM - 10:20 AM', 'JBHT0243', 'Eugene Cartwright', 29),
+('Open', 'CSCE2214 001', 'Computer Organization', 4, 'Sp, Fa', 'Tue, Thu', '9:30 AM - 10:45 AM', 'OZAR0102', 'Miaoqing Huang', 30),
+('Open', 'CSCE2214 L001', 'Computer Organization', 4, 'Sp, Fa', 'Mon', '4:10 PM - 5:55 PM', 'JBHT0240', 'Sen Ma', 31),
+('Open', 'CSCE2214 L002', 'Computer Organization', 4, 'Sp, Fa', 'Wed', '4:10 PM - 5:55 PM', 'JBHT0240', 'Sen Ma', 32),
+('Open', 'CSCE2214 L003', 'Computer Organization', 4, 'Sp, Fa', 'Fri', '2:00 PM - 3:45 PM', 'JBHT0240', 'Sen Ma', 33),
+('Open', 'CSCE3193 001', 'Programming Paradigms', 3, 'Sp, Fa', 'Tue, Thu', '11:00 AM - 12:15 PM', 'JBHT0144', 'Matthew Patitz', 34),
+('Open', 'CSCE3193H 001', 'Honors Programming Paradigms', 3, 'Fa', 'Tue, Thu', '11:00 AM - 12:15 PM', 'JBHT0144', 'Matthew Patitz', 35),
+('Open', 'CSCE3213 001', 'Cluster Computing', 3, 'Irregular', 'Tue, Thu', '8:00 AM - 9:15 AM', NULL, 'Pawel Wolinski', 36),
+('Open', 'CSCE3313 001', 'Algorithms', 3, 'Fa', 'Mon, Wed, Fri', '10:45 AM - 11:35 AM', 'BELL2286', 'Merwin Beavers', 37),
+('Open', 'CSCE3513 001', 'Software Engineering', 3, 'Sp, Fa', 'Tue, Thu', '2:00 PM - 3:15 PM', 'JBHT0146', 'Brajendra Panda', 38),
+('Open', 'CSCE3613 001', 'Operating Systems', 3, 'Sp, Fa', 'Tue, Thu', '9:30 AM - 10:45 AM', 'BELL1108', 'Wing Li', 39),
+('Open', 'CSCE3953 001', 'System Synthesis and Modeling', 3, 'Fa', 'Tue, Thu', '12:30 PM - 1:45 PM', 'BELL1108', 'David Andrews', 40),
+('Open', 'CSCE4013 001', 'Special Topics', 3, 'Irregular', 'Mon, Wed, Fri', '3:05 PM - 3:55 PM', 'JBHT0239', 'Christophe Bobda', 41),
+('Open', 'CSCE4013 002', 'Special Topics', 3, 'Irregular', 'Tue, Thu', '2:00 PM - 3:15 PM', 'JBHT0239', 'Tingxin Yan', 42),
+('Open', 'CSCE4013 003', 'Special Topics', 3, 'Irregular', 'Mon, Wed, Fri', '11:50 AM - 12:40 PM', 'WJWH0103', 'Susan Gauch', 43),
+('Open', 'CSCE4013 004', 'Special Topics', 3, 'Irregular', 'Mon, Wed, Fri', '12:55 PM - 1:45 PM', 'JBHT0236', 'Xintao Wu', 44),
+('Open', 'CSCE4043 001', 'RFID Information Systems Security\r\n(INFOSEC)', 3, 'Irregular', 'Tue, Thu', '11:00 AM - 12:15 PM', 'JBHT0239', 'Dale Thompson', 45),
+('Open', 'CSCE4114 001', 'Embedded Systems', 4, 'Fa', 'Mon, Wed, Fri', '9:40 AM - 10:30 AM', 'JBHT0239', 'Christophe Bobda', 46),
+('Open', 'CSCE4114 L001', 'Embedded Systems ', 4, 'Fa', 'Mon', '4:10 PM - 5:55 PM', 'JBHT0243', 'Christophe Bobda', 47),
+('Open', 'CSCE4123 001', 'Programming Challenges', 3, 'Irregular', 'Mon, Wed, Fri', '8:35 AM - 9:25 AM', 'JBHT0236', 'Merwin Beavers', 48),
+('Open', 'CSCE4333 001', 'Introduction to Integrated Circuit Design', 3, 'Fa', 'Tue, Thu', '12:30 PM - 1:45 PM', 'ENGR0304', 'Randy Brown', 49),
+('Open', 'CSCE4523 001', 'Database Management Systems', 3, 'Fa', 'Tue, Thu', '9:30 AM - 10:45 AM', 'JBHT0216', 'Brajendra Panda', 50),
+('Open', 'CSCE4561 001', 'Capstone I', 1, 'Fa', 'Tue', '3:30 PM - 4:45 PM', 'BELL2286', 'Matthew Patitz', 51),
+('Open', 'CSCE4963 001', 'Capstone II', 3, 'Sp', 'Tue, Thu', '3:30 PM - 4:45 PM', 'JBHT0236', 'Pat Parkerson', 52);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `courses`
+--
+ALTER TABLE `courses`
+ ADD PRIMARY KEY (`Index`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `courses`
+--
+ALTER TABLE `courses`
+MODIFY `Index` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
