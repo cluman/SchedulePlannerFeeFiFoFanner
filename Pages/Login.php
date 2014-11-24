@@ -4,9 +4,12 @@
 
 <form action="LoginProcessing.php" onSubmit="return validateForm();" method="post" name="Form">
 E-mail: <input id="email" type="text" name="email" value = ""><br>
-Password: <input type="password" name="password"><br>
+Password: <input type="password" name="password" value=""><br>
 <input type="submit">
 </form>
+
+<br><br>
+<a href="ForgotPassword.php">Forgot password</a><br>
 
 <?php
 session_start();
