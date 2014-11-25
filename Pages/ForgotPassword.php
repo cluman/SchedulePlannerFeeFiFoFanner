@@ -17,5 +17,17 @@ return true;
 }
 </script>
 
+<?php
+session_start();
+$email = $_SESSION['email'];
+
+echo "
+<script>
+document.forms['Form']['email'].value = '$email';
+</script>
+";
+
+?>
+
 </body>
 </html>
