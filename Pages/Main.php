@@ -1,5 +1,13 @@
 <?php
 
+session_start();
+$email = $_SESSION['pass'];
+if ($email == null)
+{
+	echo "You are not logged in. <br>";
+	exit();
+}
+
 
 ?>
 
@@ -8,21 +16,11 @@
 <title>FeeFiFoFanner</title>
 <body>
 <p>Hey! You're in your main page now, <b><a id="email"></a></b>! =)</p>
+
+<p>Now let's try to <a href="Logout.php">log you out</a>.</p>
 </body>
 
 <?php 
-
- session_start();
-// if (array_key_exists("email", $_POST))
-// {
-	// $email = $_POST["email"];
-	// $_SESSION['email'] = $_POST["email"];
-// }
-
-//else {
-	$email = $_SESSION['pass'];
-//}
-
 
 echo "
 <script>
