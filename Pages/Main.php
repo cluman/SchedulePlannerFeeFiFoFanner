@@ -1,3 +1,9 @@
+<?php
+
+
+?>
+
+
 <html>
 <title>FeeFiFoFanner</title>
 <body>
@@ -6,17 +12,16 @@
 
 <?php 
 
-session_start();
-if (array_key_exists("email", $_POST))
-{
-	echo "DEBUG yes";
-	$email = $_POST["email"];
-	$_SESSION['email'] = $_POST["email"];
-}
+ session_start();
+// if (array_key_exists("email", $_POST))
+// {
+	// $email = $_POST["email"];
+	// $_SESSION['email'] = $_POST["email"];
+// }
 
-else {
-	$email = $_SESSION['email'];
-}
+//else {
+	$email = $_SESSION['pass'];
+//}
 
 
 echo "
