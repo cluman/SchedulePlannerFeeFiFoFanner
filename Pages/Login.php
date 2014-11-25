@@ -3,8 +3,8 @@
 <body>
 
 <form action="LoginProcessing.php" onSubmit="return validateForm();" method="post" name="Form">
-E-mail: <input id="email" type="text" name="email" value = ""><br>
-Password: <input type="password" name="password" value=""><br>
+E-mail: <input id="email" type="text" name="email"><br>
+Password: <input type="password" name="password"><br>
 <input type="submit">
 </form>
 
