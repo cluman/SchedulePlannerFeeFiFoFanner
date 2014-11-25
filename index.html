@@ -12,8 +12,6 @@
 
 <body>
 
-
-		
 	<!-- Login Page -->
 	<div id = "Login" data-role = "page">
 		<div data-role = "header">
@@ -124,18 +122,74 @@
 			</ul>
 		</div>		
 		
-		<div role = "main" class="ui-content">
-			<fieldset data-role="controlgroup" data-type="horizontal">
-				<form action = "#" method = "get">
+		<div role = "main" class="ui-content">				
+			<form action = "#" method = "get" >
+				<fieldset data-role="controlgroup" data-type="horizontal">
+
 					<input type = "submit" value = "Save"></input>
-				</form>
-				<a href="#Search" class="ui-btn ui-corner-all ui-btn-inline">
-					Search
-				</a>
-			</fieldset>
+				
+					<a href="#Search" class="ui-btn ui-corner-all ui-btn-inline">
+						Search
+					</a>
+					<a href="#ChPassword" class="ui-btn ui-corner-all ui-btn-inline">
+						Change Password
+					</a>
+				</fieldset>	
+			</form>
 		</div>
 	</div>
+
+	<!-- Change Password page -->
+	<div id = "ChPassword" data-role = "page">
+		<div data-role = "header">
+			<h1>	Change Password	</h1>
+		</div>
 		
+		<?php
+
+			session_start();
+			$email = $_SESSION['email'];
+			$entered_password = $_SESSION['entered_password'];
+
+		?>
+		<fieldset data-role="controlgroup" data-type="horizontal">
+			<form action="ChangePasswordProcessing.php" onSubmit="return validateForm();" method="post" name="Form">
+				Current password: <input type="password" name="cur_pass"><br>
+				New password: <input type="password" name="new_pass"><br>
+				New password again: <input type="password" name="new_pass_conf"><br>
+				<input type="submit" >
+				<a href="javascript:history.go(-1)" class="ui-btn ui-corner-all ui-btn-inline">Cancel</a><br>
+			</form>
+		</fieldset>
+
+		<br><br>
+		
+		<script>
+		function validateForm() {	
+
+			var pass1 = document.forms["Form"]["new_pass"].value;
+			var pass2 = document.forms["Form"]["new_pass_conf"].value;
+			
+			if (strlen($pass1) < 4) {
+				alert ("Please choose a password of at least 4 characters");
+				return false;
+			}
+			
+			if (pass1 != pass2) {
+				alert ("Password confirmation does not match");
+				return false;
+			}	
+				
+			return true;
+		}
+		</script>
+
+
+		<?php
+
+		?>
+	</div>
+	
 	<!-- Search -->
 	<div id = "Search" data-role = "page">
 		<div data-role = "header">
@@ -556,6 +610,8 @@
 	</div>
 </body>
 </html>
+
+
 <!--  Insert1
 <div class="ui-block-a ui-content">
 				<ul class="hide-items ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true">
