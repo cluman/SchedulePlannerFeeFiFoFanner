@@ -3,11 +3,6 @@
 
 <?php 
 
-$url_to_go = "";
-
-//header("Location: $url_to_go");
-//echo "Location: $url_to_go <br><br>";
-
 require 'DatabaseConnection.php';
 
 $password = $_POST["password"];
@@ -15,7 +10,6 @@ $email = $_POST["email"];
 
 session_start();
 $_SESSION['email'] = $email;
-$_SESSION['entered_password'] = $password;
 
 //Query the DB
 $resource = mysql_query("SELECT * FROM user WHERE email = '$email'");
@@ -37,9 +31,9 @@ if(mysql_num_rows($resource) == 0)
 	}
 	
 	else {
-		echo "E-mail not registered.<br>
-			  <a href='Registration.php'>Click here</a> to register.<br>";
-		//exit();
+		echo "<script>alert('E-mail not registered.');</script>";
+		echo "<script>window.location = 'ForgotPassword.php'</script>";
+		exit();
 	}
 }
 else {
@@ -50,75 +44,37 @@ else {
 
 	$encrypted_entered_password = sha1($salt . $password);
 
-	echo "Entered pass: $encrypted_entered_password <br>";
-	echo "Correct pass: " . $grab['password'] . "<br>";
-	echo "Temp pass: " . $grab['temp_password'] . "<br>";
-	echo "Salt: $salt <br>";
-	echo "Entered pass: $password <br>";
-	echo "Email: $email <br>";
+	// echo "Entered pass: $encrypted_entered_password <br>";
+	// echo "Correct pass: " . $grab['password'] . "<br>";
+	// echo "Temp pass: " . $grab['temp_password'] . "<br>";
+	// echo "Salt: $salt <br>";
+	// echo "Entered pass: $password <br>";
+	// echo "Email: $email <br>";
 
 
 	if ($encrypted_entered_password == $grab['password'])
 	{
 		//MATCHING EMAIL AND PASSWORD WERE INSERTED
-		//$url_to_go = "Main.php";
 		echo "<script>window.location = 'Main.php'</script>";
+		$_SESSION['pass'] = $email;
 		exit();
 	}
 	else if ($encrypted_entered_password == $grab['temp_password'])
 	{
 		//User forgot password and is using his temporary one
-		//$url_to_go = "ChangePassword.php";
 		echo "<script>window.location = 'ChangePassword.php'</script>";
 		exit();
 	}
 	else
 	{
-		echo "Wrong password! <br><br><br>";	
-		
+		echo "<script>alert('Wrong password!')</script>";	
+		echo "<script>window.location = 'Login.php'</script>";
 	}
 }
 
 ?> 
 
-		<br><br><br>
-		<form action='LoginProcessing.php' onSubmit='return validateForm();' method='post' name='Form'>
-		E-mail: <input id='email' type='text' name='email' value = ''><br>
-		Password: <input type='password' name='password'><br>
-		<input type='submit'>
-		</form>
 		
-		<br><br>
-		<a href="ForgotPassword.php">Forgot password</a><br>
-		
-		<?php
-		
-		echo "
-			<script>
-			document.forms['Form']['email'].value = '$email';
-			</script>"
-		?>
-		<script>
-
-		function validateForm() {	
-
-			var email = document.forms['myForm']['email'].value;
-			if (email.indexOf('@') <= -1) {
-				alert('Please insert a valid email');
-				return false;
-			}
-			
-			var pass = document.forms['myForm']['password'].value;	
-			if (pass == '') {
-				alert ('Please insert a password');
-				return false;
-			}	
-				
-			return true;
-		}
-
-
-		</script>
 
 
 		</body>
