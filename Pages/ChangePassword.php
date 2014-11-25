@@ -38,7 +38,7 @@ function validateForm() {
 	var pass1 = document.forms["Form"]["new_pass"].value;
 	var pass2 = document.forms["Form"]["new_pass_conf"].value;
 	
-	if (pass1.length < 4) {
+	if (strlen($pass1) < 4) {
 		alert ("Please choose a password of at least 4 characters");
 		return false;
 	}
