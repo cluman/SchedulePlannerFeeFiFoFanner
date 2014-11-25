@@ -1,0 +1,81 @@
+<?php
+
+require 'DatabaseConnection.php';
+
+$entered_password = $_POST["cur_pass"];
+$new_password = $_POST["new_pass"];
+
+session_start();
+$email = $_SESSION['email'];
+
+//Query the DB
+$resource = mysql_query("SELECT * FROM user WHERE email = '$email'");
+if($resource === false)
+{die("Database Error 16");}
+
+//This will verify if e-mail is in fact registered
+//This case will not happen in ChangePassword. DELETE!
+/* if(mysql_num_rows($resource) == 0)
+{
+	//E-mail not registered or not confirmed yet. Will now check to see if it is waiting to be confirmed.
+	$resource = mysql_query("SELECT * FROM registration WHERE email = '$email'");
+	if($resource === false)
+	{die("Database Error 24");}
+	
+	if(mysql_num_rows($resource) != 0) {
+		echo "E-mail not confirmed.<br>
+			  <a href='EmailConfirmation.php'>Click here</a> to confirm your e-mail.<br>";
+		exit();
+	}
+	
+	else {
+		echo "E-mail not registered.<br>
+			  <a href='Registration.php'>Click here</a> to register.<br>";
+		//exit();
+	}
+} */
+//else {
+
+	$grab = mysql_fetch_assoc($resource);
+
+	$salt = $grab['salt'];
+
+	$encrypted_entered_password = sha1($salt . $entered_password);
+
+	// echo "Entered pass: $encrypted_entered_password <br>";
+	// echo "Correct pass: " . $grab['password'] . "<br>";
+	// echo "Temp pass: " . $grab['temp_password'] . "<br>";
+	// echo "Salt: $salt <br>";
+	// echo "Entered pass: $password <br>";
+	// echo "Email: $email <br>";
+	
+	$encrypted_new_password = sha1($salt . $new_password);
+
+
+	if ($encrypted_entered_password == $grab['password'] || $encrypted_entered_password == $grab['temp_password'])
+	{
+		//MATCHING EMAIL AND PASSWORD WERE INSERTED
+		
+		$resource = mysql_query("UPDATE user SET password='$encrypted_new_password' WHERE email='$email'");
+		if($resource === false)
+		{	die("Database Error 02"); }
+		
+		$resource = mysql_query("UPDATE user SET temp_password='' WHERE email='$email'");
+		if($resource === false)
+		{	Echo("Error deleting temporary password, but never mind. Not a big deal."); }
+		
+		//$url_to_go = "Main.php";
+		echo "<script>alert('Password changed!')</script>";	
+		echo "<script>window.location = 'Login.php'</script>";
+		exit();
+	}
+
+	else
+	{
+		echo "<script>alert('Wrong password!')</script>";	
+		echo "<script>window.location = 'ChangePassword.php'</script>";
+	}
+//}
+
+
+?>
