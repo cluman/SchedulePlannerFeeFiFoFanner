@@ -77,6 +77,6 @@ else {
 		
 
 
-		</body>
-		</html>
+</body>
+</html>
 		
