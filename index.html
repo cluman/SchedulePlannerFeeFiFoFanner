@@ -18,44 +18,226 @@
 			<h1>	Schedule Planner	</h1>
 		</div>
 		
+
 		<fieldset data-role="controlgroup" data-type="horizontal">
-			<input id = "Email" class = "input" type = "text" value = "Email" data-form = "ui-body-a" data-theme = "a">
-			<input id = "Password" class = "input" type = "text" value = "Password" data-form = "ui-body-a" data-theme = "a">
+			<form action="LoginProcessing.php" onSubmit="return validateForm();" method="post" name="Form">
+				E-mail: <input id="email" type="text" name="email"><br>
+				Password: <input type="password" name="password"><br>
+				<input type="submit">
+			</form>
 		</fieldset>
 		
-		<div role = "main" class="ui-content">
-			<fieldset data-role="controlgroup" data-type="horizontal">
-				<a href="#Profile" class="ui-btn ui-corner-all ui-btn-inline">
-					Login
+		<br><br>
+		
+		<!-- may need to change the address -->
+		<a href="#ForgotPassword">Forgot password</a><br> 
+
+		<?php
+			session_start();
+			$email = $_SESSION['email'];
+
+			echo "
+				<script>
+				document.forms['Form']['email'].value = '$email';
+				</script>
+				";
+
+		?>
+
+		<script>
+
+			function validateForm() {	
+
+				var email = document.forms["Form"]["email"].value;
+				if (email.indexOf("@") <= -1) {
+					alert("Please insert a valid email");
+					return false;
+				}
+				
+				var pass = document.forms["Form"]["password"].value;	
+				if (pass == "") {
+					alert ("Please insert a password");
+					return false;
+				}	
+					
+				return true;
+			}
+
+
+		</script>
+
+	</div>
+	
+	<!-- Forgot Password -->
+	<div id = "ForgotPassword" data-role = "page">
+		<fieldset data-role="controlgroup" data-type="horizontal">
+			<form action="ForgotPasswordProcessing.php" onSubmit="return validateForm();" method="post" name="Form">
+				E-mail: <input id="email" type="text" name="email" value = ""><br>
+				<input type="submit" value = "Submit">
+				
+				<!-- <a type="submit" value = "Submit" class="ui-btn ui-corner-all ui-btn-inline"> Submit </a> -->
+
+				<a href='#Login' class="ui-btn ui-corner-all ui-btn-inline">
+					Cancel 
 				</a>
-				<a href="#Register" class="ui-btn ui-corner-all ui-btn-inline">
-					Register
-				</a>
-			</fieldset>
-		</div>
+			</form>
+			
+		</fieldset>
+
+		<script>
+			function validateForm()
+			{
+				return true;
+			}
+		</script>
+
+		<?php
+			session_start();
+			$email = $_SESSION['email'];
+
+			echo "
+				<script>
+				document.forms['Form']['email'].value = '$email';
+				</script>
+				";
+
+		?>
+	</div>
+	
+	<!-- Resend Comfirmation -->
+	<div id = "ResendCode" data-role = "page">
+		<fieldset data-role="controlgroup" data-type="horizontal">
+			<form action="ResendCodeProcessing.php" onSubmit="return validateConf();" method="post" name="Form">
+
+				E-mail: <input type="text" name="email" value = ""><br>
+
+				<input type="submit">
+			</form>
+		</fieldset>
+
+		<?php
+			session_start();
+			$email = $_SESSION['email'];
+
+			echo "
+				<script>
+				document.forms['Form']['email'].value = '$email';
+				</script>
+				";
+
+		?>
+
+
+		<script>
+
+			function validateConf() {	
+
+				var email = document.forms["Form"]["email"].value;
+				var confirmation_code = document.forms["Form"]["confirmation_code"].value;
+				
+				if (email.indexOf("@") <= -1) {
+					alert("Please insert a valid email");
+					return false;
+				}
+				
+				return true;
+			}
+
+		</script>
+	</div>
+	
+	<!-- EmailConfirmation -->
+	<div id = "EmailConfirmation" data-role = "page">
+		<fieldset data-role="controlgroup" data-type="horizontal">
+			<form action="EmailConfirmationProcessing.php" onSubmit="return validateConf();" method="post" name="Form">
+
+				E-mail: <input type="text" name="email" value = ""><br>
+
+				Insert your code: <input type="text" name="confirmation_code" value=""><br><br>
+
+				<input type="submit" value = "Submit">
+			</form>
+		</fieldset>
+
+		<?php
+			session_start();
+			$email = $_SESSION['email'];
+
+			echo "
+				";
+
+		?>
+		<script>
+			document.forms['Form']['email'].value = $email;
+		</script>
+
+		<br><br>
+
+		- <a href="ResendCode.php">Resend code</a></br>
+
+		<script>
+
+		function validateConf() {	
+
+			var email = document.forms["Form"]["email"].value;
+			var confirmation_code = document.forms["Form"]["confirmation_code"].value;
+			
+			if (email.indexOf("@") <= -1) {
+				alert("Please insert a valid email");
+				return false;
+			}
+			
+			if (confirmation_code == "") {
+				alert ("Please insert code");
+				return false;
+			}
+			
+			return true;
+		}
+
+		</script>
 	</div>
 	
 	<!-- Register Page -->
-	<div id = "Register" data-role = "page">
-		<div data-role = "header">
-			<h2>Register</h2>
-		</div>
-		<div class="ui-field-contain">
-			<label for="name">Email:</label>
-			<input type="text" name="name" id="name" value="">
-
-			<label for="name">Password:</label>
-			<input type="text" name="name" id="name" value="">
-			
-			<label for="name">Retype Password:</label>
-			<input type="text" name="name" id="name" value="">
-		</div>
-		
+	<div id = "Registration" data-role = "page">
 		<fieldset data-role="controlgroup" data-type="horizontal">
-			<a href="#Profile" class="ui-btn ui-corner-all ui-btn-inline">
-				Create
-			</a>
+			<form action="RegistrationProcessing.php" onSubmit="return validateForm();" method="post" name="Form">
+				E-mail: <input id="email" type="text" name="email"><br>
+				Password: <input type="password" name="password"><br>
+				Retype password: <input type="password" name="password_confirmation"><br>
+				<input type="submit" value = "Submit">
+			</form>
 		</fieldset>
+
+		<script>
+
+		function validateForm() {	
+			
+			var email = document.forms["Form"]["email"].value;
+			
+			if (email.indexOf("@") <= -1) {
+				alert("Please insert a valid email");
+				return false;
+			}
+			
+			var pass1 = document.forms["Form"]["password"].value;
+			var pass2 = document.forms["Form"]["password_confirmation"].value;
+			
+			if (pass1.length < 4) {
+				alert ("Please choose a password of at least 4 characters");
+				return false;
+			}
+			
+			if (pass1 != pass2) {
+				alert ("Password confirmation does not match");
+				return false;
+			}	
+				
+			return true;
+		}
+
+
+		</script>
 	</div>
 	
 	<!-- Profile Page -->
@@ -140,11 +322,10 @@
 	</div>
 
 	<!-- Change Password page -->
-	<div id = "ChPassword" data-role = "page">
+	<div id = "ChangePassword" data-role = "page">
 		<div data-role = "header">
-			<h1>	Change Password	</h1>
+			<h1> Change Password </h1>
 		</div>
-		
 		<?php
 
 			session_start();
@@ -152,18 +333,20 @@
 			$entered_password = $_SESSION['entered_password'];
 
 		?>
+
+
 		<fieldset data-role="controlgroup" data-type="horizontal">
 			<form action="ChangePasswordProcessing.php" onSubmit="return validateForm();" method="post" name="Form">
 				Current password: <input type="password" name="cur_pass"><br>
 				New password: <input type="password" name="new_pass"><br>
 				New password again: <input type="password" name="new_pass_conf"><br>
-				<input type="submit" >
-				<a href="javascript:history.go(-1)" class="ui-btn ui-corner-all ui-btn-inline">Cancel</a><br>
+				<input type="submit">
 			</form>
 		</fieldset>
-
-		<br><br>
 		
+		<br><br>
+		<a href="javascript:history.go(-1)">Cancel</a><br>
+
 		<script>
 		function validateForm() {	
 
@@ -204,7 +387,6 @@
 				  <label for="name">Search Classes by time:</label>
 
 				  <input type="text" name="name" id="name" value="Search Classes by time: 8:00 am">
-
 
 				</div>
 
@@ -255,7 +437,8 @@
 		
 
 		<fieldset data-role="controlgroup" data-type="horizontal">
-
+			
+			<!-- Error code -->
 			<a href="#Register" class="ui-btn ui-corner-all ui-btn-inline">
 					
 				<table class="vsGrid" id="gvSchedule" style="border-collapse:collapse;" border="1" cellspacing="0">
@@ -609,6 +792,7 @@
 		</div>
 	</div>
 </body>
+
 </html>
 
 
@@ -731,8 +915,53 @@
   </div>
   -->
   
+  	<!-- Login Page 
+	<div id = "Login" data-role = "page">
+		<div data-role = "header">
+			<h1>	Schedule Planner	</h1>
+		</div>
+		
+		<fieldset data-role="controlgroup" data-type="horizontal">
+			<input id = "Email" class = "input" type = "text" value = "Email" data-form = "ui-body-a" data-theme = "a">
+			<input id = "Password" class = "input" type = "text" value = "Password" data-form = "ui-body-a" data-theme = "a">
+		</fieldset>
+		
+		<div role = "main" class="ui-content">
+			<fieldset data-role="controlgroup" data-type="horizontal">
+				<a href="#Profile" class="ui-btn ui-corner-all ui-btn-inline">
+					Login
+				</a>
+				<a href="#Register" class="ui-btn ui-corner-all ui-btn-inline">
+					Register
+				</a>
+			</fieldset>
+		</div>
+	</div>
+	-->
   
-  
+  <!-- Registration
+  <div id = "Register" data-role = "page">
+		<div data-role = "header">
+			<h2>Register</h2>
+		</div>
+		<div class="ui-field-contain">
+			<label for="name">Email:</label>
+			<input type="text" name="name" id="name" value="">
+
+			<label for="name">Password:</label>
+			<input type="text" name="name" id="name" value="">
+			
+			<label for="name">Retype Password:</label>
+			<input type="text" name="name" id="name" value="">
+		</div>
+		
+		<fieldset data-role="controlgroup" data-type="horizontal">
+			<a href="#Profile" class="ui-btn ui-corner-all ui-btn-inline">
+				Create
+			</a>
+		</fieldset>
+	</div>
+	-->
   
   <!-- Profile Page
   <div id = "Register" data-role = "page">
