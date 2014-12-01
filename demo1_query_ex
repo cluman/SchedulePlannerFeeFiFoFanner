@@ -1,0 +1,114 @@
+//connect to database
+<?php
+$servername="localhost"; 
+$username="root";
+$password="";
+$database="db1.2";
+mysql_connect($servername,$username,$password);
+@mysql_select_db($database) or die( "Unable to select database");
+?>
+
+//---------------------------------------------------------------------------------------------------
+//query a database
+//SELECT syntax (literally everything to do with SELECT) at http://dev.mysql.com/doc/refman/5.0/en/select.html
+<?php
+
+$query="SELECT * FROM courses"; //courses is the name of the table
+$result=mysql_query($query);
+$num=mysql_numrows($result);
+mysql_close();
+
+//looping through all rows in a table, the sepcific entries for each column can be saved into variables
+//this just rewrites $f1-$f10 with the columns for each row
+$i=0;while ($i < $num) {
+$f1=mysql_result($result,$i,"Status");
+$f2=mysql_result($result,$i,"ID");
+$f3=mysql_result($result,$i,"Title");
+$f4=mysql_result($result,$i,"Hours");
+$f5=mysql_result($result,$i,"Semesters");
+$f6=mysql_result($result,$i,"Days");
+$f7=mysql_result($result,$i,"Time");
+$f8=mysql_result($result,$i,"Location");
+$f9=mysql_result($result,$i,"Instructor");
+$f10=mysql_result($result,$i,"Index");
+
+?>
+
+//---------------------------------------------------------------------------------------------------
+//inserting into a table
+<?php
+//this is just checking to see if the previous page had empty input fields
+If(isset($_REQUEST['submit'])!='')
+{
+If($_REQUEST['name']=='' || $_REQUEST['password']==''|| $_REQUEST['repassword']=='' || $_REQUEST['email']=='' || $_REQUEST['major']=='' || $_REQUEST['standing']=='')
+{
+Echo "Please fill in the empty field.";
+}
+
+
+Else
+{
+//here is where a row is inserted into the table
+//"accounts" is the name of the table
+//$_REQUEST['name'] etc is php getting entries from fields on the previous page
+$sql="INSERT INTO accounts(Username, Password, Email, Major, 
+Standing) VALUES ('".$_REQUEST['name']."','".$_REQUEST['password']."','".$_REQUEST['email']."','".$_REQUEST['major']."','".$_REQUEST['standing']."')";
+
+if (mysql_query($sql) === TRUE) {
+    echo "Registration was successful";
+} else {
+    echo "Error";
+}
+
+}
+}
+?>
+
+//basically just $sql ="INSERT INTO table_name(column_to_be_inserted_into_1, column_to_be_inserted_into_2,...)
+//VALUES (value_1, value_2,..);
+// then, use mysql_query($sql); , which will return TRUE if successful, and FALSE if an error
+
+//----------------------------------------------------------------------------------------------------
+//checking credentials 
+//accessing entries in a table and comparing them with variables
+<?php
+$sql = sprintf("SELECT COUNT(*) FROM accounts 
+    WHERE username='%s' AND password='%s'",
+    mysql_real_escape_string($_REQUEST['name']),
+    mysql_real_escape_string($_REQUEST['password']));
+
+$result = mysql_query($sql) or die(mysql_error());
+
+if (mysql_result($result, 0) > 0){
+
+    echo "Welcome, '".$_REQUEST['name']."'  <br/>";
+
+}
+
+if (mysql_result($result, 0) < 1){
+
+    echo "Username or password is incorrect";
+}
+
+?>
+
+//-----------------------------------------------------------------------------------------------------
+Note:
+to select a specifc column (like time, location, semesters) use 
+SELECT * FROM courses
+WHERE Location='JBHT209';
+
+//can also use AND/OR with
+SELECT * FROM courses
+WHERE Location='JBHT209'
+AND (Semester='Sp');
+
+//update entries (edit values in a row or multiple rows) with
+UPDATE table_name
+SET column1=value1,column2=value2,...
+WHERE some_column=some_value; //WHERE is used to specify entries for which this is true
+                              //otherwise, without the WHERE statement, all rows are updated
+	  
+//delete rows matching the WHERE statement with
+DELETE FROM table_name
+WHERE Column_name1='value1' AND Column_name2='column2';
