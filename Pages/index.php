@@ -7,6 +7,8 @@
   <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <!-- <script src="java.js"></script> -->
+  <?php session_start(); ?>
+  
   
 </head> 
 
@@ -33,7 +35,7 @@
 		<a href="#ForgotPassword">Forgot password</a><br> 
 
 		<?php
-			session_start();
+			
 			$email = $_SESSION['email'];
 
 			echo "
@@ -71,7 +73,7 @@
 	<!-- Forgot Password -->
 	<div id = "ForgotPassword" data-role = "page">
 		<fieldset data-role="controlgroup" data-type="horizontal">
-			<form action="ForgotPasswordProcessing.php" onSubmit="return true;" method="post" name="ForgPassForm">
+			<form action="ForgotPasswordProcessing.php" onSubmit="return validateForgotPass();" method="post" name="ForgPassForm">
 				E-mail: <input id="email" type="text" name="email" value = ""><br>
 				<input type="submit" value = "Submit">
 				
@@ -84,15 +86,15 @@
 			
 		</fieldset>
 
-<!-- 		<script>
-			function validateForm()
+ 		<script>
+			function validateForgotPass()
 			{
 				return true;
 			}
-		</script> -->
+		</script> 
 
 		<?php
-			session_start();
+			//Session already started
 			$email = $_SESSION['email'];
 
 			echo "
@@ -115,17 +117,7 @@
 			</form>
 		</fieldset>
 
-		<?php
-			session_start();
-			$email = $_SESSION['email'];
-
-			echo "
-				<script>
-				document.forms['ResendConfForm']['email'].value = '$email';
-				</script>
-				";
-
-		?>
+ 
 
 
 		<script>
@@ -160,7 +152,7 @@
 		</fieldset>
 
 		<?php
-			session_start();
+			//Session already started
 			$email = $_SESSION['email'];
 
 			echo "
@@ -174,7 +166,7 @@
 
 		<br><br>
 
-		- <a href="ResendCode.php">Resend code</a></br>
+		- <a href="index.php#ResendCode">Resend code</a></br>
 
 		<script>
 
@@ -329,7 +321,7 @@
 		</div>
 		<?php
 
-			session_start();
+			//Session already started
 			$email = $_SESSION['email'];
 			$entered_password = $_SESSION['entered_password'];
 
