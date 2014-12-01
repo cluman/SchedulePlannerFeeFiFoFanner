@@ -1,0 +1,16 @@
++ChangePassword.php 
+-ChangePasswordProcessing.php
+-DatabaseConnection.php 
++EmailConfirmation.php 
+-EmailConfirmationProcessing.php
++ForgotPassword.php 
+-ForgotPasswordProcessing.php 
++ Login.php
+	- imported/needs work
+-LoginProcessing.php 
+ Logout.php
+-Main.php
+Registration.php
+-RegistrationProcessing.php
++ResendCode.php 
+-ResendCodeProcessing.php
