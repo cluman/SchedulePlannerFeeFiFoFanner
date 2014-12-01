@@ -1,3 +1,6 @@
+<html>
+<body>
+
 <?php
 
 require 'DatabaseConnection.php';
@@ -61,3 +64,6 @@ else
 } 
 
 ?>
+
+</body>
+</html>

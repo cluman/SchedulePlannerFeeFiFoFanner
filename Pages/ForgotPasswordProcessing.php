@@ -1,3 +1,6 @@
+<html>
+<body> 
+ 
  <?php
  
 $email = $_POST["email"];
@@ -87,4 +90,8 @@ if (SendEmail ("raphaelrs55@gmail.com", $subject, $content, $fromName))  //CHANG
 }
  
  ?>
+ 
+</body>
+</html>
+
  

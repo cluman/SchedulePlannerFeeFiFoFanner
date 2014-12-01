@@ -1,3 +1,6 @@
+<html>
+<body>
+
  <?php
  
 require 'DatabaseConnection.php';
@@ -56,3 +59,6 @@ function randStr($length) {
  
  
  ?>
+ 
+ </body>
+</html>
