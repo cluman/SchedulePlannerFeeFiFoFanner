@@ -15,7 +15,7 @@ if($resource === false)
 {	die("Database Error <br>"); }
 $grab = mysql_fetch_assoc($resource);
 if (mysql_num_rows($resource) > 0) 
-{   echo "E-mail already confirmed! <br>Try <a href='index.html#Login'>login</a>."; die(); } 
+{   echo "E-mail already confirmed! <br>Try <a href='index.php#Login'>login</a>."; die(); } 
 
 $sql = "SELECT * FROM Registration WHERE email='$email'";
 $resource = mysql_query($sql);
@@ -25,7 +25,7 @@ if($resource === false)
 $grab = mysql_fetch_assoc($resource);
 if (mysql_num_rows($resource) <= 0) 
 {   echo "<script>alert('E-mail not registered.')</script>"; 
-	echo "<script>window.location = 'index.html#EmailConfirmation'</script>";}
+	echo "<script>window.location = 'index.php#EmailConfirmation'</script>";}
 
 else
 {
@@ -34,7 +34,7 @@ else
 	if ($entered_confirmation_code != $confirmation_code) 
 	{
 		echo "<script>alert('Invalid code!')</script>";
-		echo "<script>window.location = 'index.html#EmailConfirmation'</script>";
+		echo "<script>window.location = 'index.php#EmailConfirmation'</script>";
 	}
 	else 
 	{
@@ -46,7 +46,7 @@ else
 		
 		if(mysql_query("DELETE FROM registration WHERE email='$email'") == false)
 		{
-			echo "Error in temporary database. Try <a href='index.html#Login'>login</a>.";
+			echo "Error in temporary database. Try <a href='index.php#Login'>login</a>.";
 			die();
 		}		
 		// else
@@ -55,7 +55,7 @@ else
 			// } 
 		
 		echo "<script> alert ('Confirmation succeeded.') </script>";
-		echo "<script>window.location = 'index.html#Login'</script>";
+		echo "<script>window.location = 'index.php#Login'</script>";
 	}
 
 } 
