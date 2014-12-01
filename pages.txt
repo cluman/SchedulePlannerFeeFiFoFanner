@@ -8,9 +8,9 @@
 + Login.php
 	- imported/needs work
 -LoginProcessing.php 
- Logout.php
+-Logout.php
 -Main.php
-Registration.php
++Registration.php
 -RegistrationProcessing.php
 +ResendCode.php 
 -ResendCodeProcessing.php
