@@ -22,14 +22,14 @@ $result = $conn->query("SELECT * FROM Registration WHERE email='$email'");
 
 if ($result->num_rows) {
 	echo ("This e-mail is already registered, but hasn't been confirmed. <br>"); 
-	echo ("<a href='EmailConfirmation.php'>Click here</a> to confirm your email. <br>"); 
+	echo ("<a href='index.html/#EmailConfirmation'>Click here</a> to confirm your email. <br>"); 
 	exit();
 }
 
 $result2 = $conn->query("SELECT * FROM User WHERE email='$email'");
 if ($result2->num_rows) {
 	echo ("E-mail already registered! <br>"); 
-	echo ("<a href='Login.php'>Click here</a> to login. <br>"); 
+	echo ("<a href='index.html/#Login'>Click here</a> to login. <br>"); 
 	exit();
 }
 
@@ -60,11 +60,11 @@ require "email_config/SendEmailConfig.php";
 if (SendEmail ($to, $subject, $content, $fromName))
 {
 	echo "<script>alert('Confirmation code sent via e-mail.');</script>";
-	echo "<script>window.location = 'EmailConfirmation.php'</script>";
+	echo "<script>window.location = 'index.html/#EmailConfirmation'</script>";
 }
 else
 {
-	echo "Couldn't send confirmation code via e-mail. Please, try to <a href='ResendCode.php'>send your code again</a> later.<br>";
+	echo "Couldn't send confirmation code via e-mail. Please, try to <a href='index.html/#ResendCode'>send your code again</a> later.<br>";
 }	
 	
 function randStr($length) {

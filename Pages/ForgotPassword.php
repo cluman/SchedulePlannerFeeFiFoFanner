@@ -8,7 +8,7 @@ E-mail: <input id="email" type="text" name="email" value = ""><br>
 </form>
 
 <br><br><br>
-<a href='Login.php'>Cancel</a>
+<a href='index.html/#Login'>Cancel</a>
 
 <script>
 function validateForm()

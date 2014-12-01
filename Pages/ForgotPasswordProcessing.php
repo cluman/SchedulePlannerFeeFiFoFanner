@@ -1,7 +1,5 @@
  <?php
  
-//header('Location: Login.php');
- 
 $email = $_POST["email"];
   
 session_start();
@@ -25,13 +23,13 @@ if(mysql_num_rows($resource) == 0)
 	
 	if(mysql_num_rows($resource) != 0) {
 		echo "E-mail not confirmed.<br>
-			  <a href='EmailConfirmation.php'>Click here</a> to confirm your e-mail.<br>";
+			  <a href='index.html/#EmailConfirmation'>Click here</a> to confirm your e-mail.<br>";
 		exit();
 	}
 	
 	else {
 		echo "<script>alert('E-mail not registered.');</script>";
-		echo "<script>window.location = 'ForgotPassword.php'</script>";
+		echo "<script>window.location = 'index.html/#ForgotPassword'</script>";
 		exit();
 	}	
 
@@ -70,7 +68,7 @@ require "email_config/SendEmailConfig.php";
 if (SendEmail ("raphaelrs55@gmail.com", $subject, $content, $fromName))  //CHANGE
 {
 	echo "<script>alert('New password sent via e-mail.');</script>";
-	echo "<script>window.location = 'Login.php'</script>";
+	echo "<script>window.location = 'index.html/#Login'</script>";
 }	
  else {
     die ("Could not send e-mail.");

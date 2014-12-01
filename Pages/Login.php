@@ -9,7 +9,7 @@ Password: <input type="password" name="password"><br>
 </form>
 
 <br><br>
-<a href="ForgotPassword.php">Forgot password</a><br>
+<a href="index.html/#ForgotPassword">Forgot password</a><br>
 
 <?php
 session_start();
