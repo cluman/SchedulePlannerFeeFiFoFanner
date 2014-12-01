@@ -26,13 +26,13 @@ if(mysql_num_rows($resource) == 0)
 	
 	if(mysql_num_rows($resource) != 0) {
 		echo "E-mail not confirmed.<br>
-			  <a href='index.html/#EmailConfirmation'>Click here</a> to confirm your e-mail.<br>";
+			  <a href='index.html#EmailConfirmation'>Click here</a> to confirm your e-mail.<br>";
 		exit();
 	}
 	
 	else {
 		echo "<script>alert('E-mail not registered.');</script>";
-		echo "<script>window.location = 'index.html/#ForgotPassword'</script>";
+		echo "<script>window.location = 'index.html#Login'</script>";
 		exit();
 	}
 }
@@ -62,13 +62,13 @@ else {
 	else if ($encrypted_entered_password == $grab['temp_password'])
 	{
 		//User forgot password and is using his temporary one
-		echo "<script>window.location = 'index.html/#ChangePassword'</script>";
+		echo "<script>window.location = 'index.html#ChangePassword'</script>";
 		exit();
 	}
 	else
 	{
 		echo "<script>alert('Wrong password!')</script>";	
-		echo "<script>window.location = 'index.html/#Login'</script>";
+		echo "<script>window.location = 'index.html#Login'</script>";
 	}
 }
 

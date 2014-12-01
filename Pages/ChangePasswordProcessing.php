@@ -43,14 +43,14 @@ if ($encrypted_entered_password == $grab['password'] || $encrypted_entered_passw
 	{	Echo("Error deleting temporary password, but never mind. Not a big deal."); }
 	
 	echo "<script>alert('Password changed!')</script>";	
-	echo "<script>window.location = 'index.html/#Login'</script>";
+	echo "<script>window.location = 'index.html#Login'</script>";
 	exit();
 }
 
 else
 {
 	echo "<script>alert('Wrong password!')</script>";	
-	echo "<script>window.location = 'index.html/#ChangePassword'</script>";
+	echo "<script>window.location = 'index.html#ChangePassword'</script>";
 }
 
 
