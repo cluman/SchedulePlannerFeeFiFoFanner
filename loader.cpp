@@ -19,40 +19,45 @@ string gName ()
     while ( x != 9)
     {
         x = file.get();
+            
         word = word + x;
+        
+        if (file.eof())
+        {   return word;    }
     }
     return word;
 }
 
 int main()
 {
-    file.open ("newfile.txt");
+    newfile.open ("newfile.txt");
     file.open ("file.txt");
     string word;
-//    char x ;
+    string row;
+    row.clear();
     word.clear();
 
-    while ( ! file.eof() )
+    while ( !file.eof() )
     {
-/*        x = file.get();
-        word = word + x;
-        
-        while ( x != ' ' )
-        {
-            x = file.get();
-            word = word + x;
-        }
-*/
+
         word = gName();
 
             cout<< word <<endl;
 
+        row = row + word;
 
-        if (newfile.is_open())
-        {
-            newfile << word;
+        
+        if(word == "course material")
+        {   
+            cout << "test: " << word << endl;
+            row.clear();   
+            if (newfile.is_open())
+            {
+                newfile << row << endl;
+            
+            }
+            else cout << "Unable to open file";
         }
-        else cout << "Unable to open file";
         
         word.clear();
     }
