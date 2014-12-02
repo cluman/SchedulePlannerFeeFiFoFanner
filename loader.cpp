@@ -46,18 +46,13 @@ int main()
 
         row = row + word;
 
+        cout << "test: " << word << endl;
+        if (newfile.is_open())
+        {
+            newfile << row << endl;
         
-        if(word == "course material")
-        {   
-            cout << "test: " << word << endl;
-            row.clear();   
-            if (newfile.is_open())
-            {
-                newfile << row << endl;
-            
-            }
-            else cout << "Unable to open file";
         }
+        else cout << "Unable to open file";
         
         word.clear();
     }
