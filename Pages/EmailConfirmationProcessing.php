@@ -12,7 +12,7 @@ session_start();
 $_SESSION['email'] = $email;
 
 //Verify if e-mail is already registered
-$sql = "SELECT * FROM User WHERE email='$email'";
+$sql = "SELECT * FROM user WHERE email='$email'";
 $resource = mysql_query($sql);
 if($resource === false)
 {	die("Database Error <br>"); }
@@ -20,7 +20,7 @@ $grab = mysql_fetch_assoc($resource);
 if (mysql_num_rows($resource) > 0) 
 {   echo "E-mail already confirmed! <br>Try <a href='index.php#Login'>login</a>."; die(); } 
 
-$sql = "SELECT * FROM Registration WHERE email='$email'";
+$sql = "SELECT * FROM registration WHERE email='$email'";
 $resource = mysql_query($sql);
 if($resource === false)
 {	die("Database Error <br>"); }

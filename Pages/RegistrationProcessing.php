@@ -18,7 +18,7 @@ $confirmation_code = randStr(8);
 $encrypted_password = sha1($salt . $password);
 
 
-$result = $conn->query("SELECT * FROM Registration WHERE email='$email'");
+$result = $conn->query("SELECT * FROM registration WHERE email='$email'");
 
 if ($result->num_rows) {
 	echo ("This e-mail is already registered, but hasn't been confirmed. <br>"); 
@@ -26,7 +26,7 @@ if ($result->num_rows) {
 	exit();
 }
 
-$result2 = $conn->query("SELECT * FROM User WHERE email='$email'");
+$result2 = $conn->query("SELECT * FROM user WHERE email='$email'");
 if ($result2->num_rows) {
 	echo ("E-mail already registered! <br>"); 
 	echo ("<a href='index.php#Login'>Click here</a> to login. <br>"); 

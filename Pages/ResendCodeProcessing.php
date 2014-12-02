@@ -10,7 +10,7 @@ $email = $_POST["email"];
 $confirmation_code = randStr(8);
 
 // Verifies if e-mail is in fact registered
-$resource = mysql_query("SELECT * FROM Registration WHERE email='$email'");
+$resource = mysql_query("SELECT * FROM registration WHERE email='$email'");
 if($resource === false)
 {	die("Database Error <br>"); } 
 $grab = mysql_fetch_assoc($resource);
