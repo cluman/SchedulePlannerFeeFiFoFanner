@@ -1,0 +1,12 @@
+<?php
+
+$connection = mysql_connect('sql2.freemysqlhosting.net','sql260064','nY6%eA9!') or die(mysql_error());
+$database = mysql_select_db("sql260064",$connection);
+
+if (!$connection) {
+    die("Connection failed: ");
+}
+echo "Connected successfully! ";
+
+mysql_close($connection);
+?>
