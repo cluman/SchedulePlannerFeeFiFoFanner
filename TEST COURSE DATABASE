@@ -1,0 +1,63 @@
+-- phpMyAdmin SQL Dump
+-- version 3.5.5
+-- http://www.phpmyadmin.net
+--
+-- Host: sql2.freemysqlhosting.net
+-- Generation Time: Dec 03, 2014 at 02:26 AM
+-- Server version: 5.5.38-0ubuntu0.12.04.1
+-- PHP Version: 5.3.28
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `sql260064`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course`
+--
+CREATE DATABASE database1;
+
+USE database1;
+
+CREATE TABLE IF NOT EXISTS `course` (
+  `Status` varchar(6) NOT NULL,
+  `ID` varchar(20) NOT NULL,
+  `Title` varchar(50) NOT NULL,
+  `Hours` varchar(6) NOT NULL,
+  `Semesters` varchar(20) NOT NULL,
+  `Days` varchar(20) NOT NULL,
+  `Time` varchar(20) NOT NULL,
+  `Location` varchar(20) NOT NULL,
+  `Instructor` varchar(100) NOT NULL,
+  `Index` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`Index`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO `course` (`Status`, `ID`, `Title`, `Hours`, `Semesters`, `Days`, `Time`, `Location`, `Instructor`, `Index`) VALUES
+('Open', 'DURK1003 001', 'Durham Tag League I', '3', '(Su, Sp)', 'Mon, Tue, Wed', '11:00 AM - 11:50 AM', 'JBHT607', 'Parkinsons', 1),
+('Open', 'KIUR2004 002', 'Kuramaballa XDCDDDDD II', '4', '(Fa, Sp)', 'Mon, Wed, Fri', '8:35 AM - 9:45 AM', 'HRTT207', 'Person James', 2),
+('Open', 'YTCC3001 001', 'YMCA Training Lecture I', '1', '(Fa)', 'Fri', '3:30 PM - 4:25 PM', 'ENGR201', 'Rachel Yarrs', 3),
+('Open', 'YTCC3001 D001', 'YMCA Training Drill I', '1', '(Fa)', 'Wed', '2:00 PM - 2:50 PM', 'ENGR305', 'Grgggl Pop', 4),
+('Open', 'LEMM6003 004', 'Lemmings Actuation Station II', '3', '(Fa, Sp)', 'Tues, Thurs', '11:45 AM - 12:35 PM', 'JBHT306', 'Marrell Dosure', 5),
+('Open', 'CSCE4003 001', 'Radical Algorithms', '3', '(Sp)', 'Mon, Wed, Fri', '10:45 AM - 11:35 AM', 'BELL236', 'Gordon Freeman', 6),
+('Open', 'CSCE2001 001', 'Intro to Introductions', '1', '(Su, Fa, Sp)', 'Tues', '4:45 PM - 6:00 PM', 'JBHT101', 'Malcolm Gladwell', 7),
+('Open', 'CSCE3003 001', 'Programming Programs', '3', '(Fa, Sp)', 'Tues, Thurs', '12:15 PM - 1:05 PM', 'BELL123', 'Zimbabwe', 8);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
