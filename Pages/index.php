@@ -32,6 +32,7 @@
 		<br><br>
 		
 		<!-- may need to change the address -->
+		<a href="#Registration">Register</a><br> 
 		<a href="#ForgotPassword">Forgot password</a><br> 
 
 		<?php
