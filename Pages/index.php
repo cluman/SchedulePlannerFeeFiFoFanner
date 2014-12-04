@@ -19,7 +19,7 @@
 		</div>
 		
 		<fieldset data-role="controlgroup" data-type="horizontal">
-			<form action="LoginProcessing.php" onSubmit="return validateFormLogin();" method="post" name="LoginForm">
+			<form action="http://localhost/FeeFiFoFanner/LoginProcessing.php" onSubmit="return validateFormLogin();" method="post" name="LoginForm">
 				E-mail: <input id="email" type="text" name="email"><br>
 				Password: <input type="password" name="password"><br>
 				<input type="submit" value = "Submit">
@@ -102,7 +102,7 @@
 	<!-- Forgot Password Page -->
 	<div id = "ForgotPassword" data-role = "page">
 		<fieldset data-role="controlgroup" data-type="horizontal">
-			<form action="ForgotPasswordProcessing.php" onSubmit="return validateForgotPass();" method="post" name="ForgPassForm">
+			<form action="http://localhost/FeeFiFoFanner/ForgotPasswordProcessing.php" onSubmit="return validateForgotPass();" method="post" name="ForgPassForm">
 				E-mail: <input id="email" type="text" name="email" value = ""><br>
 				<input type="submit" value = "Submit">
 				
@@ -162,7 +162,7 @@
 	<!-- Resend Comfirmation -->
 	<div id = "ResendCode" data-role = "page">
 		<fieldset data-role="controlgroup" data-type="horizontal">
-			<form action="ResendCodeProcessing.php" onSubmit="return validateResendConf();" method="post" name="ResendConfForm">
+			<form action="http://localhost/FeeFiFoFanner/ResendCodeProcessing.php" onSubmit="return validateResendConf();" method="post" name="ResendConfForm">
 				E-mail: <input type="text" name="email" value = ""><br>
 				<input type="submit">
 			</form>
@@ -214,7 +214,7 @@
 	<!-- EmailConfirmation -->
 	<div id = "EmailConfirmation" data-role = "page">
 		<fieldset data-role="controlgroup" data-type="horizontal">
-			<form action="EmailConfirmationProcessing.php" onSubmit="return validateConf();" method="post" name="EmailConfForm">
+			<form action="http://localhost/FeeFiFoFanner/EmailConfirmationProcessing.php" onSubmit="return validateConf();" method="post" name="EmailConfForm">
 				E-mail: <input type="text" name="email" value = ""><br>
 				Insert your code: <input type="text" name="confirmation_code" value=""><br><br>
 				<input type="submit" value = "Submit">
@@ -282,7 +282,7 @@
 	<!-- Register Page -->
 	<div id = "Registration" data-role = "page">
 		<fieldset data-role="controlgroup" data-type="horizontal">
-			<form action="RegistrationProcessing.php" onSubmit="return validateFormReg();" method="post" name="RegisterForm">
+			<form action="http://localhost/FeeFiFoFanner/RegistrationProcessing.php" onSubmit="return validateFormReg();" method="post" name="RegisterForm">
 				E-mail: <input id="email" type="text" name="email"><br>
 				Password: <input type="password" name="password"><br>
 				Retype password: <input type="password" name="password_confirmation"><br>
@@ -355,7 +355,7 @@
 	
 		<div data-role = "content" class="ui-content" data-inline = "true" >
 			<fieldset data-role="controlgroup" data-type="horizontal">
-				<form action="LoginProcessing.php" onSubmit="return validateFormLogin();" method="post" name="LoginForm">
+				<form action="http://localhost/FeeFiFoFanner/LoginProcessing.php" onSubmit="return validateFormLogin();" method="post" name="LoginForm">
 					E-mail: 
 					<input id="email" type="text" name="email">
 					Password: 
@@ -509,7 +509,7 @@
 			$entered_password = $_SESSION['entered_password'];
 		?>
 		<fieldset data-role="controlgroup" data-type="horizontal">
-			<form action="ChangePasswordProcessing.php" onSubmit="return validateFormChangePass();" method="post" name="ChangePassForm">
+			<form action="http://localhost/FeeFiFoFanner/ChangePasswordProcessing.php" onSubmit="return validateFormChangePass();" method="post" name="ChangePassForm">
 				Current password: <input type="password" name="cur_pass"><br>
 				New password: <input type="password" name="new_pass"><br>
 				New password again: <input type="password" name="new_pass_conf"><br>
