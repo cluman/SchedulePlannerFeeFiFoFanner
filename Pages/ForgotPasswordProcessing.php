@@ -72,6 +72,7 @@ if (SendEmail ("raphaelrs55@gmail.com", $subject, $content, $fromName))  //CHANG
 {
 	echo "<script>alert('New password sent via e-mail.');</script>";
 	echo "<script>window.location = 'index.php#Login'</script>";
+	//exit();
 }	
  else {
     die ("Could not send e-mail.");
