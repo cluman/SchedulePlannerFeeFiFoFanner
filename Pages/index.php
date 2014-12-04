@@ -11,46 +11,48 @@
   
   
 </head> 
-
 <body>
-
 	<!-- Login Page -->
 	<div id = "Login" data-role = "page">
 		<div data-role = "header">
-			<h1>	Schedule Planner	</h1>
+			<h1>	Schedule Planner 1.0	</h1>
 		</div>
 		
-
 		<fieldset data-role="controlgroup" data-type="horizontal">
 			<form action="LoginProcessing.php" onSubmit="return validateFormLogin();" method="post" name="LoginForm">
 				E-mail: <input id="email" type="text" name="email"><br>
 				Password: <input type="password" name="password"><br>
-				<input type="submit">
+				<input type="submit" value = "Submit">
+				<a href="#ForgotPassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+					Forgot password
+				</a><br> 
+				<a href="#Registration" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+					Register
+				</a><br> 
 			</form>
 		</fieldset>
 		
 		<br><br>
 		
 		<!-- may need to change the address -->
-		<a href="#Registration">Register</a><br> 
-		<a href="#ForgotPassword">Forgot password</a><br> 
+		<div data-role = "content" class="ui-content">	
+			<fieldset data-role="controlgroup" data-type="horizontal">
 
-		<?php
+				
+				<?php
+					
+					$email = $_SESSION['email'];
+					echo "
+						<script>
+						document.forms['LoginForm']['email'].value = '$email';
+						</script>
+						";
+				?>
+			</fieldset>
+		</div>
 			
-			$email = $_SESSION['email'];
-
-			echo "
-				<script>
-				document.forms['LoginForm']['email'].value = '$email';
-				</script>
-				";
-
-		?>
-
 		<script>
-
 			function validateFormLogin() {	
-
 				var email = document.forms["LoginForm"]["email"].value;
 				if (email.indexOf("@") <= -1) {
 					alert("Please insert a valid email");
@@ -65,13 +67,39 @@
 					
 				return true;
 			}
-
-
 		</script>
-
+		
+		<div data-role = "footer">
+			<!-- Error Code -->
+			<a href="#ForgotPassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ForgotPassword
+			</a>
+			<a href="#Profile" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Profile
+			</a>
+			<a href="#Login" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Login
+			</a>
+			<a href="#ResendCode" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ResendCode
+			</a>
+			<a href="#EmailConfirmation" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: EmailConfirmation
+			</a>
+			<a href="#Registration" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Registration
+			</a>
+			<a href="#ChangePassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ChangePassword
+			</a>
+			<a href="#Search" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Search
+			</a>
+			<!-- /Error Code -->
+		</div>
 	</div>
 	
-	<!-- Forgot Password -->
+	<!-- Forgot Password Page -->
 	<div id = "ForgotPassword" data-role = "page">
 		<fieldset data-role="controlgroup" data-type="horizontal">
 			<form action="ForgotPasswordProcessing.php" onSubmit="return validateForgotPass();" method="post" name="ForgPassForm">
@@ -79,52 +107,69 @@
 				<input type="submit" value = "Submit">
 				
 				<!-- <a type="submit" value = "Submit" class="ui-btn ui-corner-all ui-btn-inline"> Submit </a> -->
-
 				<a href='#Login' class="ui-btn ui-corner-all ui-btn-inline">
 					Cancel 
 				</a>
 			</form>
 			
 		</fieldset>
-
  		<script>
 			function validateForgotPass()
 			{
 				return true;
 			}
 		</script> 
-
 		<?php
 			//Session already started
 			$email = $_SESSION['email'];
-
 			echo "
 				<script>
 				document.forms['ForgPassForm']['email'].value = '$email';
 				</script>
 				";
-
 		?>
+		
+		<div data-role = "footer">
+			<!-- Error Code -->
+			<a href="#ForgotPassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ForgotPassword
+			</a>
+			<a href="#Profile" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Profile
+			</a>
+			<a href="#Login" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Login
+			</a>
+			<a href="#ResendCode" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ResendCode
+			</a>
+			<a href="#EmailConfirmation" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: EmailConfirmation
+			</a>
+			<a href="#Registration" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Registration
+			</a>
+			<a href="#ChangePassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ChangePassword
+			</a>
+			<a href="#Search" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Search
+			</a>
+			<!-- /Error Code -->
+		</div>
 	</div>
 	
 	<!-- Resend Comfirmation -->
 	<div id = "ResendCode" data-role = "page">
 		<fieldset data-role="controlgroup" data-type="horizontal">
 			<form action="ResendCodeProcessing.php" onSubmit="return validateResendConf();" method="post" name="ResendConfForm">
-
 				E-mail: <input type="text" name="email" value = ""><br>
-
 				<input type="submit">
 			</form>
 		</fieldset>
-
  
-
-
 		<script>
-
 			function validateResendConf() {	
-
 				var email = document.forms["ResendConfForm"]["email"].value;
 				var confirmation_code = document.forms["ResendConfForm"]["confirmation_code"].value;
 				
@@ -135,44 +180,59 @@
 				
 				return true;
 			}
-
 		</script>
+		<div data-role = "footer">
+			<!-- Error Code -->
+			<a href="#ForgotPassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ForgotPassword
+			</a>
+			<a href="#Profile" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Profile
+			</a>
+			<a href="#Login" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Login
+			</a>
+			<a href="#ResendCode" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ResendCode
+			</a>
+			<a href="#EmailConfirmation" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: EmailConfirmation
+			</a>
+			<a href="#Registration" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Registration
+			</a>
+			<a href="#ChangePassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ChangePassword
+			</a>
+			<a href="#Search" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Search
+			</a>
+			<!-- /Error Code -->
+		</div>
 	</div>
 	
 	<!-- EmailConfirmation -->
 	<div id = "EmailConfirmation" data-role = "page">
 		<fieldset data-role="controlgroup" data-type="horizontal">
 			<form action="EmailConfirmationProcessing.php" onSubmit="return validateConf();" method="post" name="EmailConfForm">
-
 				E-mail: <input type="text" name="email" value = ""><br>
-
 				Insert your code: <input type="text" name="confirmation_code" value=""><br><br>
-
 				<input type="submit" value = "Submit">
 			</form>
 		</fieldset>
-
 		<?php
 			//Session already started
 			$email = $_SESSION['email'];
-
 			echo "
 					<script>
 			document.forms['EmailConfForm']['email'].value = '$email';
 		</script>
 				";
-
 		?>
-
-
 		<br><br>
-
 		- <a href="index.php#ResendCode">Resend code</a></br>
-
 		<script>
-
 		function validateConf() {	
-
 			var email = document.forms["EmailConfForm"]["email"].value;
 			var confirmation_code = document.forms["EmailConfForm"]["confirmation_code"].value;
 			
@@ -188,8 +248,35 @@
 			
 			return true;
 		}
-
 		</script>
+		<div data-role = "footer">
+			<!-- Error Code -->
+			<a href="#ForgotPassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ForgotPassword
+			</a>
+			<a href="#Profile" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Profile
+			</a>
+			<a href="#Login" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Login
+			</a>
+			<a href="#ResendCode" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ResendCode
+			</a>
+			<a href="#EmailConfirmation" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: EmailConfirmation
+			</a>
+			<a href="#Registration" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Registration
+			</a>
+			<a href="#ChangePassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ChangePassword
+			</a>
+			<a href="#Search" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Search
+			</a>
+			<!-- /Error Code -->
+		</div>
 	</div>
 	
 	<!-- Register Page -->
@@ -202,9 +289,7 @@
 				<input type="submit" value = "Submit">
 			</form>
 		</fieldset>
-
 		<script>
-
 		function validateFormReg() {	
 			
 			var email = document.forms["RegisterForm"]["email"].value;
@@ -229,90 +314,188 @@
 				
 			return true;
 		}
-
-
 		</script>
+		<div data-role = "footer">
+			<!-- Error Code -->
+			<a href="#ForgotPassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ForgotPassword
+			</a>
+			<a href="#Profile" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Profile
+			</a>
+			<a href="#Login" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Login
+			</a>
+			<a href="#ResendCode" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ResendCode
+			</a>
+			<a href="#EmailConfirmation" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: EmailConfirmation
+			</a>
+			<a href="#Registration" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Registration
+			</a>
+			<a href="#ChangePassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ChangePassword
+			</a>
+			<a href="#Search" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Search
+			</a>
+			<!-- /Error Code -->
+		</div>
 	</div>
 	
 	<!-- Profile Page -->
 	<div id = "Profile" data-role = "page">
 		<div data-role = "header">
-			<h2>Profile</h2>
+			<h2>
+				Profile
+			</h2>
 		</div>
-		<div class="ui-field-contain">
-			<label for="name">User Name:</label>
-			<input type="text" name="name" id="name" value="">
-		</div>
-		<div class="ui-field-contain">
-			<label for="name">Password:</label>
-			<input type="text" name="name" id="name" value="">
+	
+		<div data-role = "content" class="ui-content" data-inline = "true" >
+			<fieldset data-role="controlgroup" data-type="horizontal">
+				<form action="LoginProcessing.php" onSubmit="return validateFormLogin();" method="post" name="LoginForm">
+					E-mail: 
+					<input id="email" type="text" name="email">
+					Password: 
+					<input type="password" name="password">
+				</form>
+			</fieldset>
 		</div>
 		
-		<div class="ui-field-contain">
-		  <div data-role="rangeslider">
-			<label for="range-7a">Hrs Wanted:</label>
-			<input name="range-7a" id="range-7a" min="0" max="26" value="0" type="range" />
-			<label for="range-7b">Hrs Wanted:</label>
-			<input name="range-7b" id="range-7b" min="0" max="26" value="100" type="range" />
-		  </div>
-		</div>
-		<fieldset>
-			<div data-role="fieldcontain">
-				<label for="select-based-flipswitch">Computer Science/Engineer:</label>
-				<select id="select-based-flipswitch" data-role="flipswitch">
-					<option value="cs">CS</option>
-					<option value="ce">CE</option>
-				</select>
+		<!-- select number hrs desired for the semester -->		
+		<div data-role = "content" class="ui-contain" data-inline = "true">
+			<div data-role="rangeslider">
+				<label for="range-7a">
+					Hrs Wanted:
+				</label>
+				<input name="range-7a" id="range-7a" min="0" max="26" value="0" type="range" />
+				<label for="range-7b">
+					Hrs Wanted:
+				</label>
+				<input name="range-7b" id="range-7b" min="0" max="26" value="100" type="range" />
 			</div>
-		</fieldset>
+		</div>
+		<!-- /select number hrs desired for the semester -->
 		
-		<div data-role = "content">
-			<ul data-role = "listview"  data-filter-placeholder = "Classes" data-inline ="true" data-inset = "true" data-filter = "true" data-filter-reveal="true">
-				<li data-role = "list-divider">
-					CSCE
-				</li>			
-				<li>
-					Programming Foundations 1
-				</li>
-				<li>
-					Programming Foundations 2
-				</li>
-				<li>
-					Software Engineering
-				</li>
-				<li>
-					Paradigms
-				</li>
-				<li data-role = "list-divider">
-					MATH
-				</li>
-				<li>
-					Calculus 1
-				</li>
-				<li>
-					Calculus 2
-				</li>
-				<li>
-					Discreet Mathmatics
-				</li>
-			</ul>
-		</div>		
+		<!-- Choose Degree -->		
+		<div data-role = "content" class="ui-contain">
+			<fieldset>
+				<div data-role="fieldcontain">
+					<label for="select-based-flipswitch">
+						Computer Science/Engineer:
+					</label>
+					<select id="select-based-flipswitch" data-role="flipswitch">
+						<option value="cs">
+							CS
+						</option>
+						<option value="ce">
+							CE
+						</option>
+					</select>
+				</div>
+			</fieldset>
+		</div>
+		<!-- /Choose Degree -->
 		
-		<div role = "main" class="ui-content">				
-			<form action = "#" method = "get" >
+		<!-- Footer -->
+		<div data-role = "footer" >
+		
+			<!-- Navigation Buttons -->
+			<div data-role = "content" class="ui-content">	
 				<fieldset data-role="controlgroup" data-type="horizontal">
-
 					<input type = "submit" value = "Save"></input>
 				
-					<a href="#Search" class="ui-btn ui-corner-all ui-btn-inline">
+					<a href="#Search" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
 						Search
 					</a>
-					<a href="#ChPassword" class="ui-btn ui-corner-all ui-btn-inline">
+					<a href="#ChangePassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
 						Change Password
 					</a>
+					<a href="#panelAddingClasses" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+						Open dialog	
+					</a>
 				</fieldset>	
-			</form>
+			</div>
+			<!-- /Navigation Buttons -->
+			
+			<!-- Error Code -->
+			<a href="#ForgotPassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ForgotPassword
+			</a>
+			<a href="#Profile" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Profile
+			</a>
+			<a href="#Login" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Login
+			</a>
+			<a href="#ResendCode" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ResendCode
+			</a>
+			<a href="#EmailConfirmation" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: EmailConfirmation
+			</a>
+			<a href="#Registration" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Registration
+			</a>
+			<a href="#ChangePassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ChangePassword
+			</a>
+			<a href="#Search" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Search
+			</a>
+			<!-- /Error Code -->
+			
 		</div>
+		<!-- /Footer -->
+
+		<!-- Panel for Adding Classes -->
+		<div data-role="panel" id="panelAddingClasses">
+			<div data-role="header">
+				<h2>
+					Add Classes
+				</h2>
+			</div>
+			
+			<div role="main" class="ui-content">
+				
+				<!-- Search Field -->
+				<div data-role = "content">
+					<ul data-role = "listview"  data-filter-placeholder = "Classes" data-inline ="true" data-inset = "true" data-filter = "true" data-filter-reveal="true">
+						<li data-role = "list-divider">
+							CSCE
+						</li>			
+						<li>
+							Programming Foundations 1
+						</li>
+						<li>
+							Programming Foundations 2
+						</li>
+						<li>
+							Software Engineering
+						</li>
+						<li>
+							Paradigms
+						</li>
+						<li data-role = "list-divider">
+							MATH
+						</li>
+						<li>
+							Calculus 1
+						</li>
+						<li>
+							Calculus 2
+						</li>
+						<li>
+							Discreet Mathmatics
+						</li>
+					</ul>
+				</div>	
+			</div>
+		</div>
+		<!-- Panel for Adding Classes -->
+		
 	</div>
 
 	<!-- Change Password page -->
@@ -321,14 +504,10 @@
 			<h1> Change Password </h1>
 		</div>
 		<?php
-
 			//Session already started
 			$email = $_SESSION['email'];
 			$entered_password = $_SESSION['entered_password'];
-
 		?>
-
-
 		<fieldset data-role="controlgroup" data-type="horizontal">
 			<form action="ChangePasswordProcessing.php" onSubmit="return validateFormChangePass();" method="post" name="ChangePassForm">
 				Current password: <input type="password" name="cur_pass"><br>
@@ -340,10 +519,8 @@
 		
 		<br><br>
 		<a href="javascript:history.go(-1)">Cancel</a><br>
-
 		<script>
 		function validateFormChangePass() {	
-
 			var pass1 = document.forms["ChangePassForm"]["new_pass"].value;
 			var pass2 = document.forms["ChangePassForm"]["new_pass_conf"].value;
 			
@@ -360,11 +537,36 @@
 			return true;
 		}
 		</script>
-
-
 		<?php
-
 		?>
+		<div data-role = "footer">
+			<!-- Error Code -->
+			<a href="#ForgotPassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ForgotPassword
+			</a>
+			<a href="#Profile" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Profile
+			</a>
+			<a href="#Login" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Login
+			</a>
+			<a href="#ResendCode" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ResendCode
+			</a>
+			<a href="#EmailConfirmation" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: EmailConfirmation
+			</a>
+			<a href="#Registration" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Registration
+			</a>
+			<a href="#ChangePassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ChangePassword
+			</a>
+			<a href="#Search" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Search
+			</a>
+			<!-- /Error Code -->
+		</div>
 	</div>
 	
 	<!-- Search -->
@@ -379,11 +581,8 @@
 			<fieldset  data-role="controlgroup" data-type="horizontal">
 				<div class="ui-field-contain">
 				  <label for="name">Search Classes by time:</label>
-
 				  <input type="text" name="name" id="name" value="Search Classes by time: 8:00 am">
-
 				</div>
-
 				<div data-role = "content">
 					<ul data-role = "listview"  data-filter-placeholder = "Classes" data-inline ="false" data-inset = "true" data-filter = "true" data-filter-reveal="true">
 						<li data-role = "list-divider">
@@ -423,13 +622,12 @@
 						</li>
 					</ul>
 				</div>
-
 			</fieldset>
+	
 		</div>		
 		
 		<!-- Insert2 -->
 		
-
 		<fieldset data-role="controlgroup" data-type="horizontal">
 			
 			<!-- Error code -->
@@ -513,7 +711,6 @@
 							<td class="GridBackSlashImage" style="background-color:LightSalmon;border-left: 2px solid black; border-right: 2px solid black;">
 							</td><td></td><td></td><td></td>
 						</tr><tr class="GridBackSlashImage">
-
 					</tbody>
 				</table>
 			</a>
@@ -552,20 +749,13 @@
 				<!--		
 						<tr></tr>
 						<tr >
-
 						</tr><tr >
 						</tr><tr >
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr>
 					-->
 						<tr class="GridBackSlashImage">
@@ -716,80 +906,73 @@
 						</tr><tr class="GridBackSlashImage">
 							<td style="border-color:#CC9966;border-width:1px;border-style:Solid;font-size:12px;" align="center">3:45</td><td></td><td></td><td></td><td></td><td class="GridBackSlashImage" style="background-color:LightSkyBlue;border-bottom: 2px solid black; border-left: 2px solid black; border-right: 2px solid black;"></td>
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr><tr class="GridBackSlashImage">
-
 						</tr>
 					</tbody>
 				</table>
 			</div>					
 		</div>
+		<div data-role = "footer">
+			<!-- Error Code -->
+			<a href="#ForgotPassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ForgotPassword
+			</a>
+			<a href="#Profile" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Profile
+			</a>
+			<a href="#Login" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Login
+			</a>
+			<a href="#ResendCode" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ResendCode
+			</a>
+			<a href="#EmailConfirmation" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: EmailConfirmation
+			</a>
+			<a href="#Registration" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Registration
+			</a>
+			<a href="#ChangePassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: ChangePassword
+			</a>
+			<a href="#Search" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+				Temp: Search
+			</a>
+			<!-- /Error Code -->
+		</div>
 	</div>
 </body>
-
 </html>
-
-
 <!--  Insert1
 <div class="ui-block-a ui-content">
 				<ul class="hide-items ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true">
@@ -941,7 +1124,6 @@
 		<div class="ui-field-contain">
 			<label for="name">Email:</label>
 			<input type="text" name="name" id="name" value="">
-
 			<label for="name">Password:</label>
 			<input type="text" name="name" id="name" value="">
 			
