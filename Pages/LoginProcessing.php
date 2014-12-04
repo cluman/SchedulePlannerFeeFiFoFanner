@@ -55,7 +55,7 @@ else {
 	if ($encrypted_entered_password == $grab['password'])
 	{
 		//MATCHING EMAIL AND PASSWORD WERE INSERTED
-		echo "<script>window.location = 'Main.php'</script>";
+		echo "<script>window.location = 'index.php#Profile'</script>";
 		$_SESSION['pass'] = $email;
 		exit();
 	}
