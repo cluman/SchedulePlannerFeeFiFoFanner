@@ -41,7 +41,7 @@ if ($encrypted_entered_password == $grab['password'] || $encrypted_entered_passw
 	if($resource === false)
 	{	die("Database Error 02"); }
 	
-	$resource = mysql_query("UPDATE user SET temp_password='' WHERE email='$email'");
+	$resource = mysql_query("UPDATE user SET temp_password='' WHERE email='$email'"); //Deletes temporary password, if there's any
 	if($resource === false)
 	{	Echo("Error deleting temporary password, but never mind. Not a big deal."); }
 	
@@ -54,6 +54,7 @@ else
 {
 	echo "<script>alert('Wrong password!')</script>";	
 	echo "<script>window.location = 'index.php#ChangePassword'</script>";
+	exit();
 }
 
 

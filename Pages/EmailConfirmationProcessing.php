@@ -36,7 +36,7 @@ else
 	
 	if ($entered_confirmation_code != $confirmation_code) 
 	{
-		echo "<script>alert('Invalid code!')</script>";
+		echo "<script>alert('Wrong code!')</script>";
 		echo "<script>window.location = 'index.php#EmailConfirmation'</script>";
 	}
 	else 
