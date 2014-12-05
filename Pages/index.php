@@ -23,14 +23,15 @@
 			<form action="http://csce.uark.edu/~rrochada/FFFF/LoginProcessing.php" onSubmit="return validateFormLogin();" method="post" name="LoginForm">
 				E-mail: <input id="email" type="text" name="email"><br>
 				Password: <input type="password" name="password"><br>
-				<input type="submit" value = "Submit">
+				<input type="submit" value = "Submit" ><br>
+
 				<a href="#ForgotPassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
 					Forgot password
-				</a><br> 
+				</a>
 				<a href="#Registration" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
 					Register
-				</a><br> 
-			</form>
+				</a>
+			<form>
 		</fieldset>
 		
 		<br><br>
@@ -494,12 +495,16 @@
 				Current password: <input type="password" name="cur_pass"><br>
 				New password: <input type="password" name="new_pass"><br>
 				New password again: <input type="password" name="new_pass_conf"><br>
-				<input type="submit">
+				<input type="submit" value = "Submit"></input>
+
 			</form>
+
 		</fieldset>
 		
-		<br><br>
-		<a href="javascript:history.go(-1)">Cancel</a><br>
+		<a href="javascript:history.go(-1)" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
+			Cancel
+		</a>
+		
 		<script>
 		function validateFormChangePass() {	
 			var pass1 = document.forms["ChangePassForm"]["new_pass"].value;
