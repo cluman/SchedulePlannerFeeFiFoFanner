@@ -90,7 +90,7 @@ function convertPM(str){
 } 
 
 function convertAM(str){
-        if(str.indexOf("1") > -1 && str.indexOf("2") == -1)
+        if(str.indexOf("1") == 0 && str.indexOf("2") == -1 && str.indexOf("11") > -1)
             return 1;
         else if(str.indexOf("2") > -1 && (str.indexOf("1") > 0 || str.indexOf("4") > 0 || str.indexOf("3") > 0 || str.indexOf("5") > 0 && str.indexOf("0") > 0))
             return 2;
@@ -110,10 +110,10 @@ function convertAM(str){
             return 9;
         else if(str.indexOf("10") > -1 && (str.indexOf("4") > 0 || str.indexOf("3") > 0 || str.indexOf("5") > 0 || str.indexOf("2") > 0 && str.indexOf("0") > 0))
             return 10;
-        else if(str.indexOf("11") > -1 && (str.indexOf("4") > 0 || str.indexOf("3") > 0 || str.indexOf("5") > 0 || str.indexOf("2") > 0 && str.indexOf("0") > 0))
-            return 11;
+        else if(str.indexOf("1") > -1 && str.indexOf("2") > -1)
+            return 12;
         else 
-            return 12;*/
+            return 11;
 } 
 
 function sortList(){
