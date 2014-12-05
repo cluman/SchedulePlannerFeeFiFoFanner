@@ -1,0 +1,13 @@
+function getTime (str)
+{
+    var temp;
+    
+    temp = str.length - 19;
+    
+    alert(str.slice(temp, str.length));
+    
+    //return str.slice(temp, str.length);
+}
+    
+    
+getTime('afasd, asdgasg, adsga, tue, thu 12:00 pm - 1:30 pm');
