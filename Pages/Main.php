@@ -1,12 +1,6 @@
 <?php
 
-session_start();
-$email = $_SESSION['pass'];
-if ($email == null)
-{
-	echo "You are not logged in. <br>";
-	exit();
-}
+require "CheckLogin.php";
 
 
 ?>
@@ -21,6 +15,7 @@ if ($email == null)
 </body>
 
 <?php 
+$email = $_SESSION['pass'];
 
 echo "
 <script>
