@@ -120,15 +120,7 @@
 				return true;
 			}
 		</script> 
-		<?php
-			//Session already started
-			$email = $_SESSION['email'];
-			echo "
-				<script>
-				document.forms['ForgPassForm']['email'].value = '$email';
-				</script>
-				";
-		?>
+
 		
 		<div data-role = "footer">
 			<!-- Error Code -->
@@ -221,15 +213,7 @@
 				<input type="submit" value = "Submit">
 			</form>
 		</fieldset>
-		<?php
-			//Session already started
-			$email = $_SESSION['email'];
-			echo "
-					<script>
-			document.forms['EmailConfForm']['email'].value = '$email';
-		</script>
-				";
-		?>
+
 		<br><br>
 		- <a href="index.php#ResendCode">Resend code</a></br>
 		<script>
@@ -504,11 +488,7 @@
 		<div data-role = "header">
 			<h1> Change Password </h1>
 		</div>
-		<?php
-			//Session already started
-			$email = $_SESSION['email'];
-			$entered_password = $_SESSION['entered_password'];
-		?>
+
 		<fieldset data-role="controlgroup" data-type="horizontal">
 			<form action="http://csce.uark.edu/~rrochada/FFFF/ChangePasswordProcessing.php" onSubmit="return validateFormChangePass();" method="post" name="ChangePassForm">
 				Current password: <input type="password" name="cur_pass"><br>
@@ -538,8 +518,7 @@
 			return true;
 		}
 		</script>
-		<?php
-		?>
+
 		<div data-role = "footer">
 			<!-- Error Code -->
 			<a href="#ForgotPassword" role = "button" class="ui-btn ui-corner-all ui-btn-inline">
