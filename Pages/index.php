@@ -40,16 +40,6 @@
 		<div data-role = "content" class="ui-content">	
 			<fieldset data-role="controlgroup" data-type="horizontal">
 
-				
-				<?php
-					
-					$email = $_SESSION['email'];
-					echo "
-						<script>
-						document.forms['LoginForm']['email'].value = '$email';
-						</script>
-						";
-				?>
 			</fieldset>
 		</div>
 			
