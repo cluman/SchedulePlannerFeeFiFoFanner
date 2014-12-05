@@ -16,6 +16,7 @@
 	<div id = "Login" data-role = "page">
 		<div data-role = "header">
 			<h1>	Schedule Planner 1.0	</h1>
+			<?php require 'http://csce.uark.edu/~rrochada/FFFF/Logout.php' ?>
 		</div>
 		
 		<fieldset data-role="controlgroup" data-type="horizontal">
