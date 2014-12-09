@@ -3,17 +3,17 @@
 
 /*
 To connect to your database use these details
-Host: sql2.freemysqlhosting.net
-Database name: sql260064
-Database user: sql260064
-Database password: nY6%eA9!
+Host: sql5.freemysqlhosting.net
+Database name: sql560866
+Database user: sql560866
+Database password: kT2%lQ5%
 Port number: 3306
 */
 
-$DBserver = 'sql2.freemysqlhosting.net';
-$DBdatabase      = 'sql260064';
-$DBusername  = 'sql260064';
-$DBpassword    = 'nY6%eA9!';
+$DBserver = 'sql5.freemysqlhosting.net';
+$DBdatabase      = 'sql560866';
+$DBusername  = 'sql560866';
+$DBpassword    = 'kT2%lQ5%';
 
 /*$DBserver = 'localhost';
 $DBdatabase      = 'FFFFdb';
@@ -28,14 +28,14 @@ if (!$conn) {
 }
 
 // Create database
-$sql = "CREATE DATABASE IF NOT EXISTS sql260064";
+$sql = "CREATE DATABASE IF NOT EXISTS sql560866";
 if (mysqli_query($conn, $sql)) {
     //echo "Database created successfully";
 } else {
     echo "Error creating database: " . mysqli_error($conn);
 }
 
-$conn = mysqli_connect($DBserver, $DBusername, $DBpassword, "sql260064");
+$conn = mysqli_connect($DBserver, $DBusername, $DBpassword, "sql560866");
 
 //Registration
 $sql = "
