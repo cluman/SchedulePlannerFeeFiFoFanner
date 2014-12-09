@@ -5,7 +5,7 @@
 <body>
 <p id="idd"></p>
 <p id="time"></p>
-<p id="sort">push the button asshole</p>
+<p id="sort">push the button</p>
 
 <?php
 require 'DBconnection.php';
